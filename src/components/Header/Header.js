@@ -1,13 +1,26 @@
 import React, { useContext } from "react";
+import { Link } from "react-router-dom";
+import "./Header.css";
 import UserContext from "../../context/UserContext";
 function Header() {
   const value = useContext(UserContext);
   console.log(value);
   return (
-    <div className="Header">
-      <a href="#">All tours</a>
-      logo
-      <div>login sign up</div>
+    <div className="header-container">
+      <Link to="/" className="header-nav text">
+        ALL TOURS
+      </Link>
+      <img src="/img/logo-white.png" alt="white-logo" className="header-logo" />
+      <div className="header-auth">
+        <Link to="login" className="header-nav">
+          LOGIN
+        </Link>
+        <Link to="signup" className="header-nav">
+          <div className="header-btn">
+            <p className="header-text">SIGN UP</p>
+          </div>
+        </Link>
+      </div>
     </div>
   );
 }

@@ -1,0 +1,28 @@
+:root {
+  --header-background-color: #eeede7;
+}
+
+body {
+  font-size: 1rem;
+  line-height: 1.6;
+  font-weight: 300;
+  font-family: "Lato", sans-serif;
+
+  min-height: 100vh;
+}
+a:focus {
+  outline: none;
+}
+/* remove default styles */
+/* select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+}
+.App {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+} */
