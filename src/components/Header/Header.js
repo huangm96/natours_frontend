@@ -7,15 +7,15 @@ function Header() {
   console.log(value);
   return (
     <div className="header-container">
-      <Link to="/" className="header-nav text">
+      <Link to="/" className="btn-text header-nav ">
         ALL TOURS
       </Link>
       <img src="/img/logo-white.png" alt="white-logo" className="header-logo" />
       <div className="header-auth">
-        <Link to="login" className="header-nav">
+        <Link to="login" className="btn-text header-nav">
           LOGIN
         </Link>
-        <Link to="signup" className="header-nav">
+        <Link to="signup" className=" header-nav">
           <div className="header-btn">
             <p className="header-text">SIGN UP</p>
           </div>

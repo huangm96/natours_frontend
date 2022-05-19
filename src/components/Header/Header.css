@@ -3,7 +3,7 @@
   justify-content: space-between;
   align-items: center;
   background-color: #444;
-  padding: 1.5rem 5rem;
+  padding: 1.2rem 5rem;
 }
 .header-logo {
   width: 80px;
@@ -13,11 +13,23 @@
   display: flex;
   align-items: center;
 }
+.btn-text:hover,
+.btn-text:active {
+  -webkit-transform: translateY(-2px);
+  transform: translateY(-2px);
+  text-shadow: 0 0.7rem 1rem black;
+}
 .header-btn {
   border: 1px solid white;
   border-radius: 30px;
   padding: 0.6rem 1.8rem;
-  margin: 0 1rem;
+  margin: 0 0 0 1rem;
+  transition: all 0.2s;
+}
+.header-btn:hover,
+.header-btn:active {
+  background-color: white;
+  color: black;
 }
 .header-nav {
   text-decoration: none;
