@@ -17,9 +17,9 @@ function App() {
           <Routes>
             <Route path="/" element={<Home />}>
               <Route index element={<Tours />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
             </Route>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
           </Routes>
         </ToursContextProvider>
       </UserContextProvider>

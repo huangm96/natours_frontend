@@ -9,6 +9,10 @@ body {
   font-family: "Lato", sans-serif;
 
   min-height: 100vh;
+  background-color: #f4f4f4;
+}
+h3 {
+  font-size: 1.3rem;
 }
 a:focus {
   outline: none;
