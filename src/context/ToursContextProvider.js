@@ -31,7 +31,7 @@ function ToursProvider({ children }) {
             const imgBuffer = new Buffer.from(res.data.data.img.data).toString(
               "base64"
             );
-            tour.imageCover = `data:${res.data.data.contentType};base64, ${imgBuffer}`;
+            tour.imageCoverPicture = `data:${res.data.data.contentType};base64, ${imgBuffer}`;
           }
           return tour;
         });

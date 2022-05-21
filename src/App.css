@@ -1,7 +1,3 @@
-:root {
-  --header-background-color: #eeede7;
-}
-
 body {
   font-size: 1rem;
   line-height: 1.6;
@@ -9,11 +5,8 @@ body {
   font-family: "Lato", sans-serif;
 
   min-height: 100vh;
-  background-color: #f4f4f4;
 }
-h3 {
-  font-size: 1.3rem;
-}
+
 a:focus {
   outline: none;
 }

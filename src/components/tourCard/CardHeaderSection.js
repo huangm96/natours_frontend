@@ -15,7 +15,7 @@ function CardHeaderSection({ tour }) {
         <div className="card-picture-overlay"></div>
         <img
           className="card-picture-img"
-          src={tour.imageCover}
+          src={tour.imageCoverPicture}
           alt={tour.name}
         />
       </div>
