@@ -9,7 +9,7 @@
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
   clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
   height: 15rem;
-  max-width: 350px;
+  width: 100%;
 }
 .card-picture-img {
   object-fit: cover;

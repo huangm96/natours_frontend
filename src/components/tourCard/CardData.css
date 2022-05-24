@@ -1,0 +1,10 @@
+.card-data-container {
+  width: 45%;
+  display: flex;
+  align-items: center;
+  margin-top: 1em;
+  font-size: 0.8rem;
+}
+.card-data-icon {
+  margin-right: 1em;
+}
