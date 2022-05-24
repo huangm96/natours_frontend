@@ -1,8 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import "./CardFooter.css";
 function CardFooter({ tour }) {
+  const navigate = useNavigate();
+  const toTourPage = () => {
+    navigate(`/tours/${tour.id}`, {
+      state: { id: tour.id, imageCoverPicture: tour.imageCoverPicture },
+    });
+  };
   return (
     <div className="card-footer-container">
       <div>
@@ -14,9 +20,18 @@ function CardFooter({ tour }) {
           {tour.ratingsQuantity})
         </p>
       </div>
-      <Link to={`/tours/${tour.id}`} className="btn card-footer-button">
-        DETAILS
-      </Link>
+      {tour.imageCoverPicture ? (
+        <div
+          onClick={() => {
+            toTourPage();
+          }}
+          className="btn card-footer-button"
+        >
+          DETAILS
+        </div>
+      ) : (
+        <div className="btn card-footer-button">Loading</div>
+      )}
     </div>
   );
 }

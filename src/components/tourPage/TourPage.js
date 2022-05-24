@@ -1,10 +1,14 @@
 import React from "react";
-import { useParams } from "react-router-dom";
-
+import { useLocation } from "react-router-dom";
+import PageHeader from "./PageHeader";
 function TourPage() {
-  let urlParams = useParams();
-  console.log(urlParams);
-  return <div className="home">page</div>;
+  const location = useLocation();
+  console.log(location.state);
+  return (
+    <div className="tourPage-container">
+      <PageHeader imageCover={location.state.imageCoverPicture} />
+    </div>
+  );
 }
 
 export default TourPage;
