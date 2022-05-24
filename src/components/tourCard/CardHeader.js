@@ -1,16 +1,16 @@
 import React, { useEffect, useContext } from "react";
 import ToursContext from "../../context/ToursContext";
 
-import "./CardHeaderSection.css";
+import "./CardHeader.css";
 
-function CardHeaderSection({ tour }) {
+function CardHeader({ tour }) {
   const { getImageCover } = useContext(ToursContext);
   useEffect(() => {
     getImageCover(tour.imageCover);
   }, []);
 
   return (
-    <div className="cardHeaderSection">
+    <div className="card-header-container">
       <div className="card-picture">
         <div className="card-picture-overlay"></div>
         <img
@@ -26,4 +26,4 @@ function CardHeaderSection({ tour }) {
   );
 }
 
-export default CardHeaderSection;
+export default CardHeader;

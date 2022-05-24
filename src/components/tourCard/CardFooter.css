@@ -1,0 +1,20 @@
+.card-footer-container {
+  padding: 2rem;
+  background-color: rgb(244, 244, 244);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.card-footer-value {
+  margin: 0.5rem 0;
+}
+.card-footer-value .value {
+  font-weight: bold;
+}
+.card-footer-button {
+  background-color: #55c57a;
+  color: white;
+  width: 35%;
+  padding: 0.8rem;
+  text-align: center;
+}

@@ -5,7 +5,6 @@ import "./Tours.css";
 
 function Tours() {
   const { tours } = useContext(ToursContext);
-  console.log(tours);
   return (
     <div className="tours-container">
       {tours.map((tour) => {

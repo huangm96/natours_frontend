@@ -9,6 +9,7 @@ import Login from "./components/auth/Login";
 import Signup from "./components/auth/Signup";
 import Home from "./components/home/Home";
 import Tours from "./components/tours/Tours";
+import TourPage from "./components/tourPage/TourPage";
 function App() {
   return (
     <div className="App">
@@ -19,6 +20,9 @@ function App() {
               <Route index element={<Tours />} />
               <Route path="/login" element={<Login />} />
               <Route path="/signup" element={<Signup />} />
+              <Route path="tours">
+                <Route path=":tourId" element={<TourPage />} />
+              </Route>
             </Route>
           </Routes>
         </ToursContextProvider>
