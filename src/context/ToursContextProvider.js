@@ -11,10 +11,31 @@ function ToursProvider({ children }) {
   }, []);
 
   const getAllTours = () => {
+    const month = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
     axiosWithAuth()
       .get("/api/v1/tours")
       .then((res) => {
-        setTours(res.data.data);
+        const toursList = res.data.data.map((tour) => {
+          const tourStartDate = new Date(tour.startDates[0]);
+          tour.nextStartDay = `${month[tourStartDate.getMonth()]} ${
+            tourStartDate.getYear() + 1900
+          }`;
+          return tour;
+        });
+        setTours(toursList);
       })
       .catch(function (error) {
         // handle error
@@ -22,6 +43,9 @@ function ToursProvider({ children }) {
       });
   };
   const getImageCover = (id) => {
+    if (tours && tours[0].imageCoverPicture) {
+      return;
+    }
     axiosWithAuth()
       .get(`/api/v1/tourPhotos/${id}`)
       .then((res) => {
@@ -42,8 +66,24 @@ function ToursProvider({ children }) {
         console.log(error);
       });
   };
+  const getTourGuides = (id) => {
+    // if (tours && tours[0].imageCoverPicture) {
+    //   return;
+    // }
+
+    axiosWithAuth()
+      .get(`/api/v1/users/${id}`)
+      .then((res) => {
+        console.log(res);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  };
+  console.log(tours);
   return (
-    <ToursContext.Provider value={{ tours, getImageCover }}>
+    <ToursContext.Provider value={{ tours, getImageCover, getTourGuides }}>
       {children}
     </ToursContext.Provider>
   );

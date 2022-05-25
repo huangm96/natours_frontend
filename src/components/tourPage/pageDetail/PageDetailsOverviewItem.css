@@ -1,0 +1,18 @@
+.page-details-overview-item {
+  display: flex;
+  align-items: center;
+  margin-top: 1.2rem;
+}
+.overview-item-heading {
+  font-weight: bold;
+  margin: 0 1.5rem 0 0.8rem;
+  text-transform: uppercase;
+  color: rgb(109, 109, 109);
+}
+.overview-item-value {
+  text-transform: capitalize;
+}
+.overview-item-icon {
+  font-size: 1.2rem;
+  color: #7dd56f;
+}

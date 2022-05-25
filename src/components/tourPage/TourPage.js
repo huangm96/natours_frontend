@@ -1,12 +1,15 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import PageHeader from "./PageHeader";
+
+import PageHeader from "./pageHeader/PageHeader";
+import PageDetails from "./pageDetail/PageDetails";
 function TourPage() {
   const location = useLocation();
-  console.log(location.state);
+
   return (
-    <div className="tourPage-container">
-      <PageHeader imageCover={location.state.imageCoverPicture} />
+    <div className="tour-page-container">
+      <PageHeader tour={location.state.tour} />
+      <PageDetails tour={location.state.tour} />
     </div>
   );
 }

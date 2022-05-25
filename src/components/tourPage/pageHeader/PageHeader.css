@@ -1,8 +1,8 @@
-.page-coverImage {
+.page-header-container {
   position: relative;
   -webkit-clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
   clip-path: polygon(0 0, 100% 0%, 100% 83%, 0% 98%);
-  height: 80vh;
+  height: 32vw;
   width: 100%;
 }
 
@@ -36,7 +36,7 @@
   top: 50%;
   transform: translate(-50%, -50%);
   width: 30%;
-  z-index: 10;
+  /* z-index: 10; */
 }
 .page-coverImage-tertirary-title {
   font-weight: 300;

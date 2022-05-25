@@ -41,3 +41,8 @@ a:focus {
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
+
+.user-avatar {
+  width: 3rem;
+  border-radius: 50%;
+}

@@ -6,7 +6,7 @@ function CardFooter({ tour }) {
   const navigate = useNavigate();
   const toTourPage = () => {
     navigate(`/tours/${tour.id}`, {
-      state: { id: tour.id, imageCoverPicture: tour.imageCoverPicture },
+      state: { id: tour.id, tour },
     });
   };
   return (
