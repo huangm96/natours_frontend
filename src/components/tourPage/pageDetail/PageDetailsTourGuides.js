@@ -1,6 +1,6 @@
 import React from "react";
 import { Buffer } from "buffer";
-import "./PageDetailsOverview.css";
+import "./PageDetailsOverviewItem.css";
 
 function PageDetailsTourGuides({ guide }) {
   const imgBuffer = new Buffer.from(guide.avatar.img.data).toString("base64");

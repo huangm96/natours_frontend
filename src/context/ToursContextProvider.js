@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import ToursContext from "./ToursContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { Buffer } from "buffer";
+import { convertBufferToImage } from "../utils/convertBufferToImage";
 function ToursProvider({ children }) {
   //sets state of user throughout the app
   const [tours, setTours] = useState([]);
-
   useEffect(() => {
     getAllTours();
   }, []);
@@ -52,10 +51,10 @@ function ToursProvider({ children }) {
         const newTours = tours.map((tour) => {
           if (tour.imageCover === id) {
             //   conver buffer to img
-            const imgBuffer = new Buffer.from(res.data.data.img.data).toString(
-              "base64"
+            tour.imageCoverPicture = convertBufferToImage(
+              res.data.data.img.data,
+              res.data.data.contentType
             );
-            tour.imageCoverPicture = `data:${res.data.data.contentType};base64, ${imgBuffer}`;
           }
           return tour;
         });
@@ -66,24 +65,10 @@ function ToursProvider({ children }) {
         console.log(error);
       });
   };
-  const getTourGuides = (id) => {
-    // if (tours && tours[0].imageCoverPicture) {
-    //   return;
-    // }
 
-    axiosWithAuth()
-      .get(`/api/v1/users/${id}`)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
-  };
   console.log(tours);
   return (
-    <ToursContext.Provider value={{ tours, getImageCover, getTourGuides }}>
+    <ToursContext.Provider value={{ tours, getImageCover }}>
       {children}
     </ToursContext.Provider>
   );

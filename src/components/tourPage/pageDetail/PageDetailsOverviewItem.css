@@ -8,6 +8,7 @@
   margin: 0 1.5rem 0 0.8rem;
   text-transform: uppercase;
   color: rgb(109, 109, 109);
+  font-size: 0.9rem;
 }
 .overview-item-value {
   text-transform: capitalize;

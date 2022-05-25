@@ -1,0 +1,14 @@
+.page-images-container {
+  display: flex;
+  min-width: 100%;
+  flex-direction: row;
+}
+
+.page-tour-image {
+  flex-grow: 1;
+  flex-basis: 0;
+}
+
+.page-tour-image img {
+  width: 100%;
+}
