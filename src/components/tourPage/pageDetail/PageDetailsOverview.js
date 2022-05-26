@@ -8,7 +8,7 @@ function PageDetailsOverview({ tour }) {
   return (
     <div className="page-details-overview">
       <div className="page-details-data-box">
-        <p className="page-details-heading">QUICK FACTS</p>
+        <p className="green-heading">QUICK FACTS</p>
         <PageDetailsOverviewItem
           Icon={BsCalendarEvent}
           heading="next date"
@@ -31,7 +31,7 @@ function PageDetailsOverview({ tour }) {
         />
       </div>
       <div className="page-details-data-box">
-        <p className="page-details-heading">Your tour guides</p>
+        <p className="green-heading">Your tour guides</p>
         {tour.guides.map((guide) => {
           return <PageDetailsTourGuides key={guide.id} guide={guide} />;
         })}

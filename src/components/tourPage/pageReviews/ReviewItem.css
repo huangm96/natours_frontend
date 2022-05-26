@@ -10,8 +10,11 @@
 .review-info p {
   margin-left: 1.5rem;
   margin-bottom: 0.3rem;
+  font-weight: 700;
 }
-
+.review-created-time {
+  color: darkgray;
+}
 .review-stars-icon {
   font-size: 1.2rem;
   color: #7dd56f;

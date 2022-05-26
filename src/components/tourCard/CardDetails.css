@@ -1,5 +1,6 @@
 .card-details-container {
-  margin: 2rem;
+  padding: 2rem;
+  background-color: white;
 }
 .card-details-subheading {
   text-transform: uppercase;

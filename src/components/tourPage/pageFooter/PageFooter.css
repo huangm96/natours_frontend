@@ -1,0 +1,39 @@
+.page-footer-container {
+  padding: 4rem 5rem;
+}
+.page-footer-box {
+  background-color: white;
+  padding: 2rem 2rem 2rem 0;
+  overflow: hidden;
+  border-radius: 2rem;
+  box-shadow: 0 3rem 8rem 0.5rem rgb(0 0 0 / 15%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.page-footer-content-box {
+  display: flex;
+  align-items: center;
+}
+.page-footer-content-box p {
+  margin: 0 2rem;
+}
+.page-footer-images-box {
+  margin-left: -30px;
+}
+.page-footer-image {
+  width: 100px;
+  position: relative;
+}
+/* .page-footer-image.logo-image {
+} */
+.page-footer-image.tour-image {
+  margin-left: -80px;
+  border-radius: 50px;
+  height: 100px;
+}
+.page-footer-btn {
+  padding: 1rem 2rem;
+}

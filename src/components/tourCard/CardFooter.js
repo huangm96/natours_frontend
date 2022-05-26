@@ -25,12 +25,14 @@ function CardFooter({ tour }) {
           onClick={() => {
             toTourPage();
           }}
-          className="btn card-footer-button"
+          className="btn green-btn card-footer-button"
         >
-          DETAILS
+          <p className="green-btn-text ">DETAILS</p>
         </div>
       ) : (
-        <div className="btn card-footer-button">Loading</div>
+        <div className="btn card-footer-button">
+          <p className="green-btn-text ">Loading</p>
+        </div>
       )}
     </div>
   );

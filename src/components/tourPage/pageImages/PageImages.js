@@ -7,7 +7,6 @@ function PageImages({ tour }) {
   useEffect(() => {
     getTourImages(tour.images);
   }, []);
-  console.log(imagesList);
   if (imagesList) {
     return (
       <div className="page-images-container">

@@ -6,6 +6,7 @@ body {
 
   min-height: 100vh;
   max-width: 100vw;
+  background-color: rgb(244, 244, 244);
 }
 
 a:focus {
@@ -42,7 +43,33 @@ a:focus {
   -webkit-box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
-
+.green-btn {
+  background-color: #55c57a;
+  padding: 1rem;
+  color: white;
+  text-align: center;
+}
+.green-btn-text {
+  color: #fff;
+  font-weight: 700;
+}
+.green-heading {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  background-image: -webkit-gradient(
+    linear,
+    left top,
+    right top,
+    from(#7dd56f),
+    to(#28b487)
+  );
+  background-image: linear-gradient(to right, #7dd56f, #28b487);
+  -webkit-background-clip: text;
+  color: transparent;
+  letter-spacing: 0.1rem;
+  line-height: 1.3;
+}
 .user-avatar {
   width: 3rem;
   border-radius: 50%;

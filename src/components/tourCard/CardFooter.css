@@ -12,9 +12,5 @@
   font-weight: bold;
 }
 .card-footer-button {
-  background-color: #55c57a;
-  color: white;
   width: 35%;
-  padding: 0.8rem;
-  text-align: center;
 }

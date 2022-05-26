@@ -1,9 +1,12 @@
 .page-details-description {
   width: 50vw;
+  background-color: white;
+  padding-top: 9vw;
+  margin-top: -9vw;
 }
 .page-details-description-box {
   margin: 2.5rem 10vw;
 }
 .page-details-description-text {
-  margin-bottom: 1.5rem;
+  margin: 1.5rem 0;
 }
