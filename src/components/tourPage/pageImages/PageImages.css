@@ -1,14 +1,19 @@
 .page-images-container {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  min-width: 100%;
-  flex-direction: row;
+  clip-path: polygon(0 9vw, 100% 0, 100% calc(100% - 9vw), 0 100%);
+  -webkit-clip-path: polygon(0 9vw, 100% 0, 100% calc(100% - 9vw), 0 100%);
+  margin-top: calc(0px - 9vw);
+  position: relative;
+  z-index: 1000;
 }
 
-.page-tour-image {
-  flex-grow: 1;
-  flex-basis: 0;
+.page-tour-images {
+  overflow: hidden;
 }
 
-.page-tour-image img {
-  width: 100%;
+.page-tour-images img {
+  width: 150%;
+  transform: translateY(0.2rem);
 }

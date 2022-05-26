@@ -25,7 +25,7 @@ function ToursProvider({ children }) {
       "December",
     ];
     axiosWithAuth()
-      .get("/api/v1/tours")
+      .get("/tours")
       .then((res) => {
         const toursList = res.data.data.map((tour) => {
           const tourStartDate = new Date(tour.startDates[0]);
@@ -46,7 +46,7 @@ function ToursProvider({ children }) {
       return;
     }
     axiosWithAuth()
-      .get(`/api/v1/tourPhotos/${id}`)
+      .get(`/tourPhotos/${id}`)
       .then((res) => {
         const newTours = tours.map((tour) => {
           if (tour.imageCover === id) {

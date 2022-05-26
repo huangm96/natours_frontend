@@ -17,7 +17,7 @@ function PageImages({ tour }) {
             image.contentType
           );
           return (
-            <div className="page-tour-image">
+            <div className="page-tour-images" key={image.id}>
               <img src={picString} alt={image.filename} />
             </div>
           );

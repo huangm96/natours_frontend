@@ -9,7 +9,7 @@ function TourImagesContextProvider({ children }) {
     const list = await Promise.all(
       images.map(async (id) => {
         try {
-          const res = await axiosWithAuth().get(`/api/v1/tourPhotos/${id}`);
+          const res = await axiosWithAuth().get(`/tourPhotos/${id}`);
           return res.data.data;
         } catch (err) {
           console.log(err);

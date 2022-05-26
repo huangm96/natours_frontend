@@ -1,10 +1,12 @@
 import React from "react";
-import { Buffer } from "buffer";
 import "./PageDetailsOverviewItem.css";
+import { convertBufferToImage } from "../../../utils/convertBufferToImage";
 
 function PageDetailsTourGuides({ guide }) {
-  const imgBuffer = new Buffer.from(guide.avatar.img.data).toString("base64");
-  const userImg = `data:${guide.avatar.contentType};base64, ${imgBuffer}`;
+  const userImg = convertBufferToImage(
+    guide.avatar.img.data,
+    guide.avatar.contentType
+  );
   const guideRole = guide.role.replace("-", " ");
   return (
     <div className="page-details-overview-item">
