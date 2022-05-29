@@ -1,51 +1,64 @@
-import React from "react";
-import { Formik, Field, Form, ErrorMessage } from "formik";
+import React, { useContext } from "react";
+import { Formik } from "formik";
 import * as Yup from "yup";
-import { MyTextInput } from "../form/FormElements";
+import {
+  MyForm,
+  MyTextInput,
+  MyFormButton,
+  FormFeedback,
+} from "../form/FormElements";
+import UserContext from "./../../context/UserContext";
 const Signup = () => {
+  const { signup, loading, success, error } = useContext(UserContext);
+
   return (
     <Formik
-      initialValues={{ firstName: "", lastName: "", email: "" }}
+      initialValues={{ name: "", email: "", password: "", passwordConfirm: "" }}
       validationSchema={Yup.object({
-        firstName: Yup.string()
-          .max(15, "Must be 15 characters or less")
-          .required("Required"),
-        lastName: Yup.string()
-          .max(20, "Must be 20 characters or less")
+        name: Yup.string()
+          .min(5, "Must be 5 characters or more")
+          .max(40, "Must have less or equal than 40 characters")
           .required("Required"),
         email: Yup.string().email("Invalid email address").required("Required"),
+        password: Yup.string()
+          .required("Required")
+          .matches(
+            /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/,
+            "Must Contain 8 Characters, One Uppercase, One Lowercase, One Number and One Special Case Character"
+          ),
+        passwordConfirm: Yup.string()
+          .required("Required")
+          .oneOf([Yup.ref("password")], "Passwords must match"),
       })}
-      onSubmit={(values, { setSubmitting }) => {
-        setTimeout(() => {
-          alert(JSON.stringify(values, null, 2));
-          setSubmitting(false);
-        }, 400);
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        signup(values, resetForm);
+        setSubmitting(false);
       }}
     >
-      <Form>
+      <MyForm heading="CREATE YOUR ACCOUNT!">
         <MyTextInput
-          label="First Name"
-          name="firstName"
+          label="Your Name"
+          name="name"
           type="text"
           placeholder="Jane"
+          autoFocus={true}
         />
-
-        <MyTextInput
-          label="Last Name"
-          name="lastName"
-          type="text"
-          placeholder="Doe"
-        />
-
         <MyTextInput
           label="Email Address"
           name="email"
           type="email"
           placeholder="jane@formik.com"
         />
+        <MyTextInput label="Password" name="password" type="password" />
 
-        <button type="submit">Submit</button>
-      </Form>
+        <MyTextInput
+          label="Confirm Password"
+          name="passwordConfirm"
+          type="password"
+        />
+        <MyFormButton loading={loading} />
+        <FormFeedback error={error} success={success} />
+      </MyForm>
     </Formik>
   );
 };

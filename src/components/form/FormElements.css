@@ -1,0 +1,58 @@
+.form-box {
+  width: 30%;
+  background-color: white;
+  margin: 5rem auto;
+  padding: 3rem;
+}
+.green-heading.form-heading {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+.form-element-box {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem 0;
+}
+.form-element-label {
+  font-weight: bold;
+  color: rgb(115, 115, 115);
+  margin-bottom: 0.3rem;
+}
+.form-element-error {
+  color: red;
+  font-size: 0.8rem;
+}
+.text-input {
+  border: 0px;
+  background-color: rgb(244, 244, 244);
+  padding: 1rem;
+  border-radius: 5px;
+}
+.text-input-error {
+  border: 2px solid red;
+}
+.text-input::placeholder {
+  color: rgb(206, 206, 206);
+}
+.text-input:focus {
+  border: 0px;
+  border-bottom: 3px solid orange;
+}
+.form-element-button {
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  width: 150px;
+}
+.spinner-icon {
+  size: 1.5em;
+}
+.form-element-feedback {
+  font-size: 0.8rem;
+  margin-top: 1rem;
+}
+.form-element-feedback.success {
+  color: darkgreen;
+}
+.form-element-feedback.error {
+  color: red;
+}

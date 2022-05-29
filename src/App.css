@@ -9,7 +9,8 @@ body {
   background-color: rgb(244, 244, 244);
 }
 
-a:focus {
+a:focus textarea:focus,
+input:focus {
   outline: none;
 }
 .btn,
