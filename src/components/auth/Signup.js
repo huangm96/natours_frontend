@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useEffect, useContext } from "react";
 import { Formik } from "formik";
 import * as Yup from "yup";
 import {
@@ -9,8 +9,10 @@ import {
 } from "../form/FormElements";
 import UserContext from "./../../context/UserContext";
 const Signup = () => {
-  const { signup, loading, success, error } = useContext(UserContext);
-
+  const { signup, loading, success, error, setError } = useContext(UserContext);
+  useEffect(() => {
+    setError("");
+  }, []);
   return (
     <Formik
       initialValues={{ name: "", email: "", password: "", passwordConfirm: "" }}
@@ -56,7 +58,7 @@ const Signup = () => {
           name="passwordConfirm"
           type="password"
         />
-        <MyFormButton loading={loading} />
+        <MyFormButton loading={loading} text="Sign up" />
         <FormFeedback error={error} success={success} />
       </MyForm>
     </Formik>

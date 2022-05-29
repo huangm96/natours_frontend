@@ -32,7 +32,7 @@ export const MyTextInput = ({ label, ...props }) => {
     </div>
   );
 };
-export const MyFormButton = ({ loading }) => {
+export const MyFormButton = ({ loading, text }) => {
   return (
     <button
       className="btn green-btn form-element-button"
@@ -40,7 +40,7 @@ export const MyFormButton = ({ loading }) => {
       formNoValidate="formnovalidate"
       disabled={loading ? true : false}
     >
-      {loading ? <FaSpinner /> : <p className="green-btn-text">Sign up</p>}
+      {loading ? <FaSpinner /> : <p className="green-btn-text">{text}</p>}
     </button>
   );
 };

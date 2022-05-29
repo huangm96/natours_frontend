@@ -1,7 +1,46 @@
-import React from "react";
+import React, { useEffect, useContext } from "react";
+import { Formik } from "formik";
+import * as Yup from "yup";
 
-function Login() {
-  return <div className="login">Login</div>;
-}
+import {
+  MyForm,
+  MyTextInput,
+  MyFormButton,
+  FormFeedback,
+} from "../form/FormElements";
+import UserContext from "./../../context/UserContext";
+const Login = () => {
+  const { login, loading, success, error, setError } = useContext(UserContext);
+  useEffect(() => {
+    setError("");
+  }, []);
+
+  return (
+    <Formik
+      initialValues={{ email: "", password: "" }}
+      validationSchema={Yup.object({
+        email: Yup.string().email("Invalid email address").required("Required"),
+        password: Yup.string().required("Required"),
+      })}
+      onSubmit={(values, { setSubmitting, resetForm }) => {
+        login(values, resetForm);
+        setSubmitting(false);
+      }}
+    >
+      <MyForm heading="Log into your account">
+        <MyTextInput
+          label="Email Address"
+          name="email"
+          type="email"
+          placeholder="jane@formik.com"
+        />
+        <MyTextInput label="Password" name="password" type="password" />
+
+        <MyFormButton loading={loading} text="Login" />
+        <FormFeedback error={error} success={success} />
+      </MyForm>
+    </Formik>
+  );
+};
 
 export default Login;
