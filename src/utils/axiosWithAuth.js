@@ -6,7 +6,7 @@ export const axiosWithAuth = () => {
     //   dev mode
     baseURL: "http://127.0.0.1:5000/api/v1",
     headers: {
-      token: localStorage.getItem("token"),
+      authorization: `Bearer ${localStorage.getItem("token")}`,
     },
   });
 };

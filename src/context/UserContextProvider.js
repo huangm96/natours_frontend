@@ -10,7 +10,20 @@ function UserProvider({ children }) {
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   useEffect(() => {
-    setUser({ name: "Min" });
+    if (localStorage.getItem("token")) {
+      axiosWithAuth()
+        .get(`/users/getMe`, {
+          validateStatus: function (status) {
+            return status < 600; // Reject only if the status code is greater than or equal to 600
+          },
+        })
+        .then((res) => {
+          setUser(res.data.data);
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }, []);
   let navigate = useNavigate();
   const signup = (data, resetForm) => {

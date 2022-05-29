@@ -20,20 +20,15 @@ function CardFooter({ tour }) {
           {tour.ratingsQuantity})
         </p>
       </div>
-      {tour.imageCoverPicture ? (
-        <div
-          onClick={() => {
-            toTourPage();
-          }}
-          className="btn green-btn card-footer-button"
-        >
-          <p className="green-btn-text ">DETAILS</p>
-        </div>
-      ) : (
-        <div className="btn card-footer-button">
-          <p className="green-btn-text ">Loading</p>
-        </div>
-      )}
+
+      <div
+        onClick={() => {
+          toTourPage();
+        }}
+        className="btn green-btn card-footer-button"
+      >
+        <p className="green-btn-text ">DETAILS</p>
+      </div>
     </div>
   );
 }

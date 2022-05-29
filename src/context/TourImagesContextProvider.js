@@ -16,7 +16,6 @@ function TourImagesContextProvider({ children }) {
         }
       })
     );
-
     setImagesList([...list]);
   };
 
