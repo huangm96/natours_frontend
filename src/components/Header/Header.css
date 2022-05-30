@@ -50,4 +50,14 @@
 .header-user-box {
   display: flex;
   padding-left: 2rem;
+  align-items: center;
+}
+.header-user-box p {
+  margin-left: 0.8rem;
+  font-size: 1rem;
+  text-transform: uppercase;
+  max-width: 9rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
 }

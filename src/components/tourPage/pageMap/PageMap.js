@@ -1,6 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import ReactMapboxGl, { ZoomControl, Popup, Marker } from "react-mapbox-gl";
 import { BsFillGeoAltFill } from "react-icons/bs";
+import TourImagesContext from "../../../context/TourImagesContext";
 
 function PageMap({ tour }) {
   const [bounds, setBounds] = useState([
@@ -9,6 +10,7 @@ function PageMap({ tour }) {
     tour.startLocation.coordinates[0],
     tour.startLocation.coordinates[1],
   ]);
+  const { imagesList } = useContext(TourImagesContext);
 
   useEffect(() => {
     tour.locations.forEach((location) => {
@@ -36,12 +38,16 @@ function PageMap({ tour }) {
     <div className="tour-page-map-container">
       <Map
         style="mapbox://styles/mapbox/streets-v9"
-        containerStyle={{ height: 500, width: "100vw", marginTop: "-9vw" }}
+        containerStyle={
+          imagesList[0]
+            ? { height: 500, width: "100vw", marginTop: "-9vw" }
+            : { height: 500, width: "100vw" }
+        }
         center={tour.startLocation.coordinates}
         zoom={[6]}
         fitBounds={bounds}
         fitBoundsOptions={{
-          padding: { top: 150, left: 50, bottom: 50, right: 50 },
+          padding: { top: 250, left: 50, bottom: 50, right: 50 },
         }}
         scrollZoom={false}
       >

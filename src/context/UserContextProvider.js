@@ -96,9 +96,13 @@ function UserProvider({ children }) {
       setSuccess("");
     }, 5000);
   };
+  const logout = () => {
+    setUser({});
+    localStorage.removeItem("token");
+  };
   return (
     <UserContext.Provider
-      value={{ user, signup, login, error, success, loading, setError }}
+      value={{ user, signup, login, error, success, loading, setError, logout }}
     >
       {children}
     </UserContext.Provider>
