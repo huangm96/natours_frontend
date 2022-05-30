@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import ToursContext from "./ToursContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { convertBufferToImage } from "../utils/convertBufferToImage";
-function ToursProvider({ children }) {
+function ToursContextProvider({ children }) {
   //sets state of user throughout the app
   const [tours, setTours] = useState([]);
   useEffect(() => {
@@ -74,4 +74,4 @@ function ToursProvider({ children }) {
   );
 }
 
-export default ToursProvider;
+export default ToursContextProvider;

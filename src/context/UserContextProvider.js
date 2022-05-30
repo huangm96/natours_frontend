@@ -3,7 +3,7 @@ import UserContext from "./UserContext.js";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
-function UserProvider({ children }) {
+function UserContextProvider({ children }) {
   //sets state of user throughout the app
   const [me, setMe] = useState({});
 
@@ -18,4 +18,4 @@ function UserProvider({ children }) {
   );
 }
 
-export default UserProvider;
+export default UserContextProvider;

@@ -3,7 +3,7 @@ import AuthContext from "./AuthContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
-function AuthProvider({ children }) {
+function AuthContextProvider({ children }) {
   //sets state of user throughout the app
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
@@ -119,4 +119,4 @@ function AuthProvider({ children }) {
   );
 }
 
-export default AuthProvider;
+export default AuthContextProvider;
