@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
-import UserContext from "./UserContext";
+import AuthContext from "./AuthContext";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
-function UserProvider({ children }) {
+function AuthProvider({ children }) {
   //sets state of user throughout the app
   const [user, setUser] = useState({});
   const [error, setError] = useState("");
@@ -100,13 +100,23 @@ function UserProvider({ children }) {
     setUser({});
     localStorage.removeItem("token");
   };
+
   return (
-    <UserContext.Provider
-      value={{ user, signup, login, error, success, loading, setError, logout }}
+    <AuthContext.Provider
+      value={{
+        user,
+        signup,
+        login,
+        error,
+        success,
+        loading,
+        setError,
+        logout,
+      }}
     >
       {children}
-    </UserContext.Provider>
+    </AuthContext.Provider>
   );
 }
 
-export default UserProvider;
+export default AuthProvider;

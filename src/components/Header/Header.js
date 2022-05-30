@@ -2,9 +2,9 @@ import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
 import { displayUserAvatar } from "../userAvatar/userAvatar";
-import UserContext from "../../context/UserContext";
+import AuthContext from "../../context/AuthContext";
 function Header() {
-  const { user, logout } = useContext(UserContext);
+  const { user, logout } = useContext(AuthContext);
 
   return (
     <div className="header-container">

@@ -1,7 +1,7 @@
 import React from "react";
 import "./App.css";
 
-import UserContextProvider from "./context/UserContextProvider";
+import AuthContextProvider from "./context/AuthContextProvider";
 import ToursContextProvider from "./context/ToursContextProvider";
 import TourImagesContextProvider from "./context/TourImagesContextProvider";
 import { Routes, Route, Navigate } from "react-router-dom";
@@ -15,7 +15,7 @@ import UserPage from "./components/userPage/UserPage";
 function App() {
   return (
     <div className="App">
-      <UserContextProvider>
+      <AuthContextProvider>
         <ToursContextProvider>
           <TourImagesContextProvider>
             <Routes>
@@ -38,7 +38,7 @@ function App() {
             </Routes>
           </TourImagesContextProvider>
         </ToursContextProvider>
-      </UserContextProvider>
+      </AuthContextProvider>
     </div>
   );
 }

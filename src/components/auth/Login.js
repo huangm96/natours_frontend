@@ -8,9 +8,9 @@ import {
   MyFormButton,
   FormFeedback,
 } from "../form/FormElements";
-import UserContext from "./../../context/UserContext";
+import AuthContext from "../../context/AuthContext";
 const Login = () => {
-  const { login, loading, success, error, setError } = useContext(UserContext);
+  const { login, loading, success, error, setError } = useContext(AuthContext);
   useEffect(() => {
     setError("");
   }, []);
