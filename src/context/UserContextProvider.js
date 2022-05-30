@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import UserContext from "./UserContext";
+import UserContext from "./UserContext.js";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
