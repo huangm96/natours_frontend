@@ -9,6 +9,8 @@ function AuthContextProvider({ children }) {
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
+  let navigate = useNavigate();
+
   useEffect(() => {
     if (localStorage.getItem("token")) {
       axiosWithAuth()
@@ -18,14 +20,18 @@ function AuthContextProvider({ children }) {
           },
         })
         .then((res) => {
-          setUser(res.data.data);
+          console.log(res);
+          if (res.data.status.toLowerCase() !== "success") {
+            localStorage.removeItem("token");
+          } else {
+            setUser(res.data.data);
+          }
         })
         .catch((err) => {
-          console.log(err);
+          localStorage.removeItem("token");
         });
     }
   }, []);
-  let navigate = useNavigate();
   const signup = (data, resetForm) => {
     setError("");
     setLoading(true);
@@ -36,7 +42,7 @@ function AuthContextProvider({ children }) {
         },
       })
       .then((res) => {
-        if (res.data.status !== "success") {
+        if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
         } else {
           setUser(res.data.data.user);
@@ -71,7 +77,7 @@ function AuthContextProvider({ children }) {
         },
       })
       .then((res) => {
-        if (res.data.status !== "success") {
+        if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
         } else {
           setUser(res.data.data.user);
@@ -100,7 +106,6 @@ function AuthContextProvider({ children }) {
     setUser({});
     localStorage.removeItem("token");
   };
-
   return (
     <AuthContext.Provider
       value={{

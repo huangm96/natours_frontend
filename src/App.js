@@ -13,6 +13,10 @@ import Home from "./components/home/Home";
 import Tours from "./components/tours/Tours";
 import TourPage from "./components/tourPage/TourPage";
 import UserPage from "./components/userPage/UserPage";
+import MySetting from "./components/userPage/mySetting/MySetting";
+import MyBooking from "./components/userPage/myBooking/MyBooking";
+import MyReviews from "./components/userPage/myReviews/MyReviews";
+import MyBilling from "./components/userPage/myBilling/MyBilling";
 function App() {
   return (
     <div className="App">
@@ -23,19 +27,25 @@ function App() {
               <Routes>
                 <Route path="/" element={<Home />}>
                   <Route index element={<Tours />} />
-                  <Route path="/login" element={<Login />} />
-                  <Route path="/signup" element={<Signup />} />
+                  <Route path="login" element={<Login />} />
+                  <Route path="signup" element={<Signup />} />
                   <Route path="tours" element={<Navigate replace to="/" />} />
                   <Route path="tours/:tourId" element={<TourPage />} />
 
                   <Route
-                    path="/user"
+                    path="me"
                     element={
                       <PrivateRoute>
                         <UserPage />
                       </PrivateRoute>
                     }
-                  />
+                  >
+                    <Route index element={<MySetting />} />{" "}
+                    <Route path="mysetting" element={<MySetting />} />
+                    <Route path="mybooking" element={<MyBooking />} />
+                    <Route path="myreviews" element={<MyReviews />} />
+                    <Route path="myBilling" element={<MyBilling />} />
+                  </Route>
                 </Route>
               </Routes>
             </UserContextProvider>

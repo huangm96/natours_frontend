@@ -19,7 +19,7 @@ function Header() {
             <div to="login" className="text-btn header-nav" onClick={logout}>
               Logout
             </div>
-            <Link to="user" className="text-btn header-nav">
+            <Link to="me" className="text-btn header-nav">
               <div className="header-user-box">
                 {displayUserAvatar(user)}
 
