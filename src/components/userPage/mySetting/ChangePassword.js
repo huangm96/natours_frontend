@@ -10,7 +10,8 @@ import {
 } from "../../form/FormElements";
 import UserContext from "../../../context/UserContext";
 const ChangePassword = () => {
-  const { updateMyPassword, loading, error, success } = useContext(UserContext);
+  const { updateMyPassword, updatePasswordLoading, error, success } =
+    useContext(UserContext);
 
   return (
     <Formik
@@ -51,7 +52,7 @@ const ChangePassword = () => {
           type="password"
         />
         <MyFormButton
-          loading={loading}
+          loading={updatePasswordLoading}
           text="Save Password"
           style={{ alignSelf: "end" }}
         />

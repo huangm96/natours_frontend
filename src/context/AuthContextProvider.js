@@ -64,7 +64,7 @@ function AuthContextProvider({ children }) {
       });
     setTimeout(() => {
       setSuccess("");
-    }, 5000);
+    }, 3000);
   };
   const login = (data, resetForm) => {
     setError("");
@@ -99,11 +99,12 @@ function AuthContextProvider({ children }) {
       });
     setTimeout(() => {
       setSuccess("");
-    }, 5000);
+    }, 3000);
   };
   const logout = () => {
     setUser({});
     localStorage.removeItem("token");
+    navigate("/", { replace: true });
   };
   return (
     <AuthContext.Provider

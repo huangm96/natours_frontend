@@ -10,7 +10,7 @@ import {
 } from "../../form/FormElements";
 import UserContext from "../../../context/UserContext";
 const PersonalInfo = () => {
-  const { myData, updateMyData, loading, error, success } =
+  const { myData, updateMyData, updateDataLoading, error, success } =
     useContext(UserContext);
 
   return (
@@ -37,7 +37,7 @@ const PersonalInfo = () => {
           <MyTextInput label="Email Address" name="email" type="email" />
 
           <MyFormButton
-            loading={loading}
+            loading={updateDataLoading}
             text="Save Setting"
             style={{ alignSelf: "end" }}
           />

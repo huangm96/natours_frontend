@@ -7,7 +7,8 @@ function UserContextProvider({ children }) {
   //sets state of user throughout the app
   const [myData, setMyData] = useState({});
   const [error, setError] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [updateDataLoading, setUpdateDataLoading] = useState(false);
+  const [updatePasswordLoading, setUpdatePasswordLoading] = useState(false);
   const [success, setSuccess] = useState("");
 
   let navigate = useNavigate();
@@ -15,7 +16,7 @@ function UserContextProvider({ children }) {
   const getMyData = () => {
     if (localStorage.getItem("token")) {
       setError("");
-      setLoading(true);
+      setUpdateDataLoading(true);
       axiosWithAuth()
         .get(`/users/getMe`, {
           validateStatus: function (status) {
@@ -32,18 +33,18 @@ function UserContextProvider({ children }) {
           } else {
             setMyData(res.data.data);
           }
-          setLoading(false);
+          setUpdateDataLoading(false);
         })
         .catch((err) => {
           // handle error
           setError("Something went wrong. Please try again later.");
-          setLoading(false);
+          setUpdateDataLoading(false);
         });
     }
   };
   const updateMyData = (data) => {
     setError("");
-    setLoading(true);
+    setUpdateDataLoading(true);
     axiosWithAuth()
       .patch(`/users/updateMe`, data, {
         validateStatus: function (status) {
@@ -57,20 +58,20 @@ function UserContextProvider({ children }) {
           setMyData(res.data.data.updatedDoc);
           setSuccess("You have successfully update your data.");
         }
-        setLoading(false);
+        setUpdateDataLoading(false);
       })
       .catch((err) => {
         // handle error
         setError("Something went wrong. Please try again later.");
-        setLoading(false);
+        setUpdateDataLoading(false);
       });
     setTimeout(() => {
       setSuccess("");
-    }, 5000);
+    }, 3000);
   };
   const updateMyPassword = (data) => {
     setError("");
-    setLoading(true);
+    setUpdatePasswordLoading(true);
     axiosWithAuth()
       .patch(`/users/updateMyPassword`, data, {
         validateStatus: function (status) {
@@ -85,16 +86,16 @@ function UserContextProvider({ children }) {
           localStorage.setItem("token", res.data.token);
           setSuccess("You have successfully update your password.");
         }
-        setLoading(false);
+        setUpdatePasswordLoading(false);
       })
       .catch((err) => {
         // handle error
         setError("Something went wrong. Please try again later.");
-        setLoading(false);
+        setUpdatePasswordLoading(false);
       });
     setTimeout(() => {
       setSuccess("");
-    }, 5000);
+    }, 3000);
   };
   return (
     <UserContext.Provider
@@ -103,7 +104,8 @@ function UserContextProvider({ children }) {
         getMyData,
         updateMyData,
         updateMyPassword,
-        loading,
+        updateDataLoading,
+        updatePasswordLoading,
         error,
         success,
       }}
