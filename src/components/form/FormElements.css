@@ -1,8 +1,8 @@
 .form-box {
-  width: 30%;
   background-color: white;
-  margin: 5rem auto;
-  padding: 3rem;
+  padding: 4rem;
+  display: flex;
+  flex-direction: column;
 }
 .green-heading.form-heading {
   font-size: 1.5rem;
@@ -41,7 +41,7 @@
 .form-element-button {
   margin-top: 1rem;
   font-size: 1.2rem;
-  width: 150px;
+  min-width: 150px;
 }
 .spinner-icon {
   size: 1.5em;

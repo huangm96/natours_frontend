@@ -20,7 +20,6 @@ function AuthContextProvider({ children }) {
           },
         })
         .then((res) => {
-          console.log(res);
           if (res.data.status.toLowerCase() !== "success") {
             localStorage.removeItem("token");
           } else {

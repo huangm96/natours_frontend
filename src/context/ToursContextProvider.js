@@ -66,7 +66,6 @@ function ToursContextProvider({ children }) {
       });
   };
 
-  console.log(tours);
   return (
     <ToursContext.Provider value={{ tours, getImageCover }}>
       {children}
