@@ -1,0 +1,97 @@
+import React, { useState } from "react";
+import BookingContext from "./BookingContext.js";
+import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { useNavigate } from "react-router-dom";
+
+function BookingContextProvider({ children }) {
+  const [myBooking, setMyBooking] = useState([]);
+  const [tourBooking, setTourBooking] = useState({});
+
+  const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
+  let navigate = useNavigate();
+  const getMyBooking = () => {
+    setError("");
+    setLoading(true);
+    axiosWithAuth()
+      .get(`/bookings/myBookings`, {
+        validateStatus: function (status) {
+          return status < 600; // Reject only if the status code is greater than or equal to 600
+        },
+      })
+      .then((res) => {
+        if (res.data.status.toLowerCase() !== "success") {
+          setError(res.data.message);
+        } else {
+          setMyBooking(res.data.data);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        // handle error
+        setError("Something went wrong. Please try again later.");
+        setLoading(false);
+      });
+  };
+  const getTourBooking = async (tourId) => {
+    setError("");
+    setLoading(true);
+
+    let tour = {};
+    try {
+      tour = (await axiosWithAuth().get(`/tours/${tourId}`)).data.data;
+    } catch (err) {
+      if (err.response.data.status.toLowerCase() !== "success") {
+        navigate("/pageNotFound", { replace: true });
+      } else {
+        console.log(err);
+        setError(err);
+      }
+    }
+
+    let booking = await tour.startDates.reduce((current, date) => {
+      return { ...current, [date]: [] };
+    }, {});
+
+    // setTourBooking(booking);
+    axiosWithAuth()
+      .get(`/tours/${tourId}/bookings`, {
+        validateStatus: function (status) {
+          return status < 600; // Reject only if the status code is greater than or equal to 600
+        },
+      })
+      .then((res) => {
+        if (res.data.status.toLowerCase() !== "success") {
+          setError(res.data.message);
+        } else {
+          res.data.data.forEach((data) => {
+            booking[data.tourStartDate].push(data);
+          });
+          setTourBooking(booking);
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        // handle error
+        setError("Something went wrong. Please try again later.");
+        setLoading(false);
+      });
+  };
+
+  return (
+    <BookingContext.Provider
+      value={{
+        myBooking,
+        getMyBooking,
+        error,
+        loading,
+        getTourBooking,
+        tourBooking,
+      }}
+    >
+      {children}
+    </BookingContext.Provider>
+  );
+}
+
+export default BookingContextProvider;

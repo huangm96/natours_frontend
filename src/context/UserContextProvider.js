@@ -10,7 +10,6 @@ function UserContextProvider({ children }) {
   const [updateDataLoading, setUpdateDataLoading] = useState(false);
   const [updatePasswordLoading, setUpdatePasswordLoading] = useState(false);
   const [success, setSuccess] = useState("");
-
   let navigate = useNavigate();
 
   const getMyData = () => {
@@ -97,6 +96,7 @@ function UserContextProvider({ children }) {
       setSuccess("");
     }, 3000);
   };
+
   return (
     <UserContext.Provider
       value={{

@@ -1,5 +1,5 @@
 import React from "react";
-
+import { Link } from "react-router-dom";
 import "./PageFooter.css";
 import PageFooterImages from "./PageFooterImages";
 import PageFooterContent from "./PageFooterContent";
@@ -11,9 +11,12 @@ function PageFooter({ tour }) {
           <PageFooterImages />
           <PageFooterContent tourDuration={tour.duration} />
         </div>
-        <div className="btn green-btn page-footer-btn">
+        <Link
+          to={`/tours/${tour.id}/tourBooking`}
+          className="btn green-btn page-footer-btn"
+        >
           <p className="green-btn-text">Book tour now</p>
-        </div>
+        </Link>
       </div>
     </div>
   );

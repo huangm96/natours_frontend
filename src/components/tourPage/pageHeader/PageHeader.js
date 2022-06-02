@@ -1,14 +1,19 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
+import TourImagesContext from "../../../context/TourImagesContext";
+
 import "./PageHeader.css";
 import { BsClock, BsFillGeoAltFill } from "react-icons/bs";
 function PageHeader({ tour }) {
-  console.log(tour);
+  const { image, getOneImage } = useContext(TourImagesContext);
+  useEffect(() => {
+    getOneImage(tour.imageCover);
+  }, []);
   return (
     <div className="page-header-container">
       <div className="page-coverImage-overlay"></div>
       <img
         className="page-coverImage-picture"
-        src={tour.imageCoverPicture}
+        src={image}
         alt="Tour ImageCover"
       />
 
