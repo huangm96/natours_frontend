@@ -56,3 +56,17 @@
 .form-element-feedback.error {
   color: red;
 }
+.form-element-select {
+  border: 0px;
+  background-color: rgb(244, 244, 244);
+  padding: 1rem;
+  border-radius: 5px;
+}
+.form-element-select option {
+  background-color: white;
+}
+.form-element-option-warning {
+  color: red;
+  font-style: italic;
+  margin-top: 0.3rem;
+}

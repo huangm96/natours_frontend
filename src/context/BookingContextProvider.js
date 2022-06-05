@@ -6,8 +6,9 @@ import { useNavigate } from "react-router-dom";
 function BookingContextProvider({ children }) {
   const [myBooking, setMyBooking] = useState([]);
   const [tourBooking, setTourBooking] = useState({});
-
+  const [tour, setTour] = useState({});
   const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const [loading, setLoading] = useState(false);
   let navigate = useNavigate();
   const getMyBooking = () => {
@@ -48,7 +49,7 @@ function BookingContextProvider({ children }) {
         setError(err);
       }
     }
-
+    setTour(tour);
     let booking = await tour.startDates.reduce((current, date) => {
       return { ...current, [date]: [] };
     }, {});
@@ -77,7 +78,30 @@ function BookingContextProvider({ children }) {
         setLoading(false);
       });
   };
-
+  const createPaymentForm = (data, tourId) => {
+    setError("");
+    setLoading(true);
+    axiosWithAuth()
+      .post(`/bookings/checkout-session/${tourId}`, data, {
+        validateStatus: function (status) {
+          return status < 600; // Reject only if the status code is greater than or equal to 600
+        },
+      })
+      .then((res) => {
+        if (res.data.status.toLowerCase() !== "success") {
+          setError(res.data.message);
+        } else {
+          window.open(res.data.session.url, "_blank");
+          navigate("/", { replace: true });
+        }
+        setLoading(false);
+      })
+      .catch((err) => {
+        // handle error
+        setError("Something went wrong. Please try again later.");
+        setLoading(false);
+      });
+  };
   return (
     <BookingContext.Provider
       value={{
@@ -87,6 +111,9 @@ function BookingContextProvider({ children }) {
         loading,
         getTourBooking,
         tourBooking,
+        tour,
+        createPaymentForm,
+        success,
       }}
     >
       {children}

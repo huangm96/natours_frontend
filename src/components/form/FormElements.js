@@ -12,6 +12,7 @@ export const MyForm = ({ heading, children }) => {
 };
 export const MyTextInput = ({ label, ...props }) => {
   const [field, meta] = useField(props);
+
   return (
     <div className="form-element-box">
       <label className="form-element-label" htmlFor={props.id || props.name}>
@@ -52,6 +53,92 @@ export const FormFeedback = ({ error, success }) => {
         <p className="form-element-feedback success">{success}</p>
       ) : null}
       {error ? <p className="form-element-feedback error">{error}</p> : null}
+    </div>
+  );
+};
+
+export const MyDateSelect = ({ label, dates, maxGroupSize, ...props }) => {
+  const [field, meta] = useField(props);
+  let ticketLeft = 100;
+  if (field.value) {
+    ticketLeft = maxGroupSize - dates[field.value].length;
+  } else {
+    ticketLeft = 100;
+  }
+
+  return (
+    <div className="form-element-box">
+      <label className="form-element-label" htmlFor={props.id || props.name}>
+        {label}
+      </label>
+
+      <select className="form-element-select " {...field}>
+        <option value="" label="Select a Date" />
+        {Object.keys(dates).map((date, i) => {
+          const month = [
+            "January",
+            "February",
+            "March",
+            "April",
+            "May",
+            "June",
+            "July",
+            "August",
+            "September",
+            "October",
+            "November",
+            "December",
+          ];
+          const tourStartDate = new Date(date);
+          const tourStartDateString = `${
+            month[tourStartDate.getMonth()]
+          } ${tourStartDate.getDate()} ${tourStartDate.getYear() + 1900}`;
+          return <option key={i} value={date} label={tourStartDateString} />;
+        })}
+      </select>
+      {ticketLeft <= 5 ? (
+        <p className="form-element-option-warning">{`-only ${ticketLeft} spots left!`}</p>
+      ) : null}
+
+      {meta.touched && meta.error ? (
+        <div className="form-element-error">{meta.error}</div>
+      ) : null}
+    </div>
+  );
+};
+export const MyQuantitySelect = ({
+  label,
+  dates,
+  maxGroupSize,
+  selectedDate,
+  ...props
+}) => {
+  const [field, meta] = useField(props);
+  const getOptions = () => {
+    let options = [];
+    if (selectedDate) {
+      const number = maxGroupSize - dates[selectedDate].length;
+      for (let i = 0; i < number; i++) {
+        options.push(<option key={i} value={i + 1} label={i + 1} />);
+      }
+    }
+    return options;
+  };
+  return (
+    <div className="form-element-box">
+      <label className="form-element-label" htmlFor={props.id || props.name}>
+        {label}
+      </label>
+      <select className="form-element-select " {...field}>
+        {selectedDate ? null : (
+          <option value="" label="Please Select a Date First" />
+        )}
+
+        {getOptions()}
+      </select>
+      {meta.touched && meta.error ? (
+        <div className="form-element-error">{meta.error}</div>
+      ) : null}
     </div>
   );
 };

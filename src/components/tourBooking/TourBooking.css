@@ -1,0 +1,10 @@
+.tour-booking-container {
+  margin: 5rem auto;
+}
+.tour-booking-tour-description {
+  display: flex;
+}
+.tour-booking-tour-description-text {
+  margin: 0 2rem;
+  font-weight: bold;
+}
