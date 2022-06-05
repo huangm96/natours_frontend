@@ -2,6 +2,7 @@ import React from "react";
 import { useField, Form } from "formik";
 import { FaSpinner } from "react-icons/fa";
 import "./FormElements.css";
+import { getDate } from "./../../utils/getDate";
 export const MyForm = ({ heading, children }) => {
   return (
     <Form className="form-box">
@@ -75,25 +76,7 @@ export const MyDateSelect = ({ label, dates, maxGroupSize, ...props }) => {
       <select className="form-element-select " {...field}>
         <option value="" label="Select a Date" />
         {Object.keys(dates).map((date, i) => {
-          const month = [
-            "January",
-            "February",
-            "March",
-            "April",
-            "May",
-            "June",
-            "July",
-            "August",
-            "September",
-            "October",
-            "November",
-            "December",
-          ];
-          const tourStartDate = new Date(date);
-          const tourStartDateString = `${
-            month[tourStartDate.getMonth()]
-          } ${tourStartDate.getDate()} ${tourStartDate.getYear() + 1900}`;
-          return <option key={i} value={date} label={tourStartDateString} />;
+          return <option key={i} value={date} label={getDate(date)} />;
         })}
       </select>
       {ticketLeft <= 5 ? (

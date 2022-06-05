@@ -1,7 +1,7 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
 import { BsStar } from "react-icons/bs";
-import { AiOutlineSetting, AiOutlineCreditCard } from "react-icons/ai";
+import { AiOutlineSetting } from "react-icons/ai";
 import { RiSuitcaseLine } from "react-icons/ri";
 import UserPageNavItem from "./UserPageNavItem";
 import "./UserPageNav.css";
@@ -27,12 +27,6 @@ function UserPageNav() {
         currentPath={path}
         goToPath="myreviews"
         text="My Reviews"
-      />
-      <UserPageNavItem
-        Icon={AiOutlineCreditCard}
-        currentPath={path}
-        goToPath="mybilling"
-        text="Billing"
       />
     </nav>
   );

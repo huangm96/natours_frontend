@@ -18,7 +18,6 @@ import UserPage from "./components/userPage/UserPage";
 import MySetting from "./components/userPage/mySetting/MySetting";
 import MyBooking from "./components/userPage/myBooking/MyBooking";
 import MyReviews from "./components/userPage/myReviews/MyReviews";
-import MyBilling from "./components/userPage/myBilling/MyBilling";
 import PageNotFound from "./components/pageNotFound/PageNotFound";
 function App() {
   return (
@@ -51,7 +50,6 @@ function App() {
                       <Route path="mysetting" element={<MySetting />} />
                       <Route path="mybooking" element={<MyBooking />} />
                       <Route path="myreviews" element={<MyReviews />} />
-                      <Route path="myBilling" element={<MyBilling />} />
                     </Route>
                     <Route path="*" element={<PageNotFound />} />
                   </Route>

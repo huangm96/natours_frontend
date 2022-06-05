@@ -20,24 +20,20 @@ function TourImagesContextProvider({ children }) {
     );
     setImagesList([...list]);
   };
-  const getOneImage = (id) => {
-    axiosWithAuth()
-      .get(`/tourPhotos/${id}`)
-      .then((res) => {
-        setImage(
-          convertBufferToImage(
-            res.data.data.img.data,
-            res.data.data.contentType
-          )
-        );
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  const getOneImage = async (id) => {
+    try {
+      const image = await axiosWithAuth().get(`/tourPhotos/${id}`);
+      return convertBufferToImage(
+        image.data.data.img.data,
+        image.data.data.contentType
+      );
+    } catch (err) {
+      console.log(err);
+    }
   };
   return (
     <TourImagesContext.Provider
-      value={{ imagesList, getTourImages, getOneImage, image }}
+      value={{ imagesList, getTourImages, getOneImage }}
     >
       {children}
     </TourImagesContext.Provider>

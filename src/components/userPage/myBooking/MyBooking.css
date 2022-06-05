@@ -1,0 +1,43 @@
+.my-booking-container {
+  flex-grow: 10;
+  background-color: white;
+  min-height: 100vh;
+  padding: 0 1rem;
+}
+.my-booking-header {
+  font-size: 1.7rem;
+  padding-top: 3rem;
+}
+.my-booking-message {
+  font-size: 1.7rem;
+  padding-top: 3rem;
+  text-align: center;
+  font-weight: bold;
+}
+.my-booking-item-container {
+  display: flex;
+  padding: 2rem 0;
+
+  border-bottom: 2px solid rgb(244, 244, 244);
+}
+.my-booking-item {
+  display: flex;
+  align-items: center;
+  flex-grow: 10;
+}
+.my-booking-item-image {
+  width: 150px;
+}
+.my-booking-item-cell {
+  flex: 1 2 0;
+}
+.my-booking-item-cell-xl {
+  flex: 2 1 0;
+}
+.my-booking-item-title {
+  text-align: center;
+  font-weight: bold;
+}
+.my-booking-item-cell-header {
+  font-weight: bold;
+}

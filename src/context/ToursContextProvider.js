@@ -14,31 +14,10 @@ function ToursContextProvider({ children }) {
   let navigate = useNavigate();
 
   const getAllTours = () => {
-    const month = [
-      "January",
-      "February",
-      "March",
-      "April",
-      "May",
-      "June",
-      "July",
-      "August",
-      "September",
-      "October",
-      "November",
-      "December",
-    ];
     axiosWithAuth()
       .get("/tours")
       .then((res) => {
-        const toursList = res.data.data.map((tour) => {
-          const tourStartDate = new Date(tour.startDates[0]);
-          tour.nextStartDay = `${month[tourStartDate.getMonth()]} ${
-            tourStartDate.getYear() + 1900
-          }`;
-          return tour;
-        });
-        setTours(toursList);
+        setTours(res.data.data);
       })
       .catch(function (error) {
         // handle error

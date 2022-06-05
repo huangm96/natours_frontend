@@ -1,6 +1,7 @@
 import React from "react";
 import "./CardDetails.css";
 import CardData from "./CardData";
+import { getDate } from "./../../utils/getDate";
 import {
   BsFillGeoAltFill,
   BsPerson,
@@ -17,7 +18,10 @@ function CardDetails({ tour }) {
           data={tour.startLocation.description}
           Icon={BsFillGeoAltFill}
         />
-        <CardData data={tour.nextStartDay} Icon={BsCalendarEvent} />
+        <CardData
+          data={getDate(tour.startDates[0], "mm/yyyy")}
+          Icon={BsCalendarEvent}
+        />
         <CardData data={`${tour.locations.length} stops`} Icon={BsFlag} />
         <CardData data={`${tour.maxGroupSize} people`} Icon={BsPerson} />
       </div>

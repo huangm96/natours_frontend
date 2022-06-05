@@ -4,6 +4,7 @@ import { BsPerson, BsCalendarEvent, BsStar } from "react-icons/bs";
 import { FaMountain } from "react-icons/fa";
 import PageDetailsOverviewItem from "./PageDetailsOverviewItem";
 import PageDetailsTourGuides from "./PageDetailsTourGuides";
+import { getDate } from "./../../../utils/getDate";
 function PageDetailsOverview({ tour }) {
   return (
     <div className="page-details-overview">
@@ -12,7 +13,7 @@ function PageDetailsOverview({ tour }) {
         <PageDetailsOverviewItem
           Icon={BsCalendarEvent}
           heading="next date"
-          value={tour.nextStartDay}
+          value={getDate(tour.startDates[0], "mm/yyyy")}
         />
         <PageDetailsOverviewItem
           Icon={FaMountain}
