@@ -40,8 +40,8 @@ function PageMap({ tour }) {
         style="mapbox://styles/mapbox/streets-v9"
         containerStyle={
           imagesList[0]
-            ? { height: 500, width: "100vw", marginTop: "-9vw" }
-            : { height: 500, width: "100vw" }
+            ? { height: 500, maxWidth: "100vw", marginTop: "-9vw" }
+            : { height: 500, maxWidth: "100vw" }
         }
         center={tour.startLocation.coordinates}
         zoom={[6]}

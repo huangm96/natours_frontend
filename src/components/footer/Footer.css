@@ -1,0 +1,12 @@
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0 3rem 5rem 3rem;
+}
+.footer-container img {
+  width: 200px;
+}
+.footer-container p {
+  color: rgb(171, 171, 171);
+}
