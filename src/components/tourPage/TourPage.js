@@ -6,6 +6,7 @@ import PageDetails from "./pageDetail/PageDetails";
 import PageImages from "./pageImages/PageImages";
 import PageMap from "./pageMap/PageMap";
 import PageReviews from "./pageReviews/PageReviews";
+import PageReviewInput from "./pageReviewInput/PageReviewInput";
 import PageFooter from "./pageFooter/PageFooter";
 function TourPage() {
   const { tour, getTourById } = useContext(ToursContext);
@@ -24,6 +25,7 @@ function TourPage() {
         <PageImages tour={tour} />
         <PageMap tour={tour} />
         <PageReviews tour={tour} />
+        <PageReviewInput />
         <PageFooter tour={tour} />
       </div>
     );

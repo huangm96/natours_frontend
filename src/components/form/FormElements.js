@@ -125,3 +125,24 @@ export const MyQuantitySelect = ({
     </div>
   );
 };
+
+export const MyReviewTextarea = ({ ...props }) => {
+  const [field, meta] = useField(props);
+
+  return (
+    <div>
+      <textarea
+        // className={
+        //   meta.touched && meta.error
+        //     ? "text-input text-input-error"
+        //     : "text-input"
+        // }
+        {...field}
+        {...props}
+      />
+      {meta.touched && meta.error ? (
+        <div className="form-element-error">{meta.error}</div>
+      ) : null}
+    </div>
+  );
+};

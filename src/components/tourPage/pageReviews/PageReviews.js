@@ -1,19 +1,11 @@
-import React, { useState, useEffect } from "react";
-import { axiosWithAuth } from "../../../utils/axiosWithAuth";
+import React, { useContext, useEffect } from "react";
 import "./PageReviews.css";
 import ReviewItem from "./ReviewItem";
+import ReviewContext from "../../../context/ReviewContext";
 function PageReviews({ tour }) {
-  const [reviews, setReviews] = useState([]);
+  const { reviews, getTourReviews } = useContext(ReviewContext);
   useEffect(() => {
-    axiosWithAuth()
-      .get(`/tours/${tour.id}/reviews`)
-      .then((res) => {
-        setReviews(res.data.data);
-      })
-      .catch(function (error) {
-        // handle error
-        console.log(error);
-      });
+    getTourReviews(tour.id);
   }, []);
   if (reviews) {
     return (
