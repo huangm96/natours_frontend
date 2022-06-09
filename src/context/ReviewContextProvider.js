@@ -1,8 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import ReviewContext from "./ReviewContext.js";
+import AuthContext from "./AuthContext.js";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 function ReviewContextProvider({ children }) {
+  const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
@@ -32,12 +34,13 @@ function ReviewContextProvider({ children }) {
       })
       .then((res) => {
         if (res.data.status.toLowerCase() === "success") {
+          res.data.data.doc.user = user;
           setReviews([res.data.data.doc, ...reviews]);
           setSuccess("Thank you for your review!");
           setTimeout(() => {
             setSuccess("");
           }, 2000);
-        } else if (res.data.error.code === 11000) {
+        } else if (res.data.message.includes("Duplicate")) {
           setError(
             "You have already reviewed this tour. You can only review one time."
           );
@@ -53,7 +56,6 @@ function ReviewContextProvider({ children }) {
         setLoading(false);
       });
   };
-  console.log(error);
   return (
     <ReviewContext.Provider
       value={{
