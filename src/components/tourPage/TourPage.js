@@ -25,7 +25,7 @@ function TourPage() {
         <PageImages tour={tour} />
         <PageMap tour={tour} />
         <PageReviews tour={tour} />
-        <PageReviewInput />
+        <PageReviewInput tour={tour} />
         <PageFooter tour={tour} />
       </div>
     );

@@ -1,11 +1,17 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
+import Review from "./../../../context/ReviewContext";
 import { BsStarFill, BsStar } from "react-icons/bs";
 import * as Yup from "yup";
 
 import { Formik, Form } from "formik";
-import { MyReviewTextarea, MyFormButton } from "../../form/FormElements";
-const PageReviewInputForm = () => {
+import {
+  MyReviewTextarea,
+  MyFormButton,
+  FormFeedback,
+} from "../../form/FormElements";
+const PageReviewInputForm = ({ tour }) => {
   const [rating, setRating] = useState(0);
+  const { postReview, loading, success, error } = useContext(Review);
   const inputStars = () => {
     const list = [];
 
@@ -34,7 +40,12 @@ const PageReviewInputForm = () => {
     return list;
   };
   return (
-    <div className="">
+    <div
+      style={{
+        flexGrow: 100,
+        marginLeft: "2rem",
+      }}
+    >
       <Formik
         enableReinitialize={true}
         initialValues={{
@@ -52,12 +63,11 @@ const PageReviewInputForm = () => {
             .max(500, "Must be less than or equal to 500 characters"),
         })}
         onSubmit={(values, { setSubmitting, resetForm }) => {
-          setTimeout(() => {
-            alert(JSON.stringify(values));
-            setSubmitting(false);
-          }, 400);
-          // setSubmitting(false);
-          // resetForm();a
+          postReview(tour.id, values);
+          setSubmitting(false);
+
+          resetForm();
+          setRating(0);
         }}
       >
         {(formik) => (
@@ -66,8 +76,17 @@ const PageReviewInputForm = () => {
             {formik.errors.rating ? (
               <div className="form-element-error">{formik.errors.rating}</div>
             ) : null}
-            <MyReviewTextarea name="review" rows="8" />
-            <MyFormButton text="Submit" />
+            <MyReviewTextarea
+              name="review"
+              rows="8"
+              placeholder="Leave your comment here..."
+            />
+            <MyFormButton
+              loading={loading}
+              text="Submit"
+              style={{ float: "right" }}
+            />
+            <FormFeedback error={error} success={success} />
           </Form>
         )}
       </Formik>

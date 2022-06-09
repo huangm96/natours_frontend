@@ -130,13 +130,14 @@ export const MyReviewTextarea = ({ ...props }) => {
   const [field, meta] = useField(props);
 
   return (
-    <div>
+    <div className="form-element-textarea-box">
       <textarea
         // className={
         //   meta.touched && meta.error
         //     ? "text-input text-input-error"
         //     : "text-input"
         // }
+        className="form-element-textarea"
         {...field}
         {...props}
       />

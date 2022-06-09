@@ -4,21 +4,67 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 function ReviewContextProvider({ children }) {
   const [reviews, setReviews] = useState([]);
-
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
+  const [success, setSuccess] = useState("");
   const getTourReviews = (tourId) => {
+    setLoading(true);
     axiosWithAuth()
       .get(`/tours/${tourId}/reviews`)
       .then((res) => {
         setReviews(res.data.data);
+        setLoading(false);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
+        setLoading(false);
       });
   };
-
+  const postReview = (tourId, data) => {
+    setError("");
+    setLoading(true);
+    axiosWithAuth()
+      .post(`/tours/${tourId}/reviews`, data, {
+        validateStatus: function (status) {
+          return status < 600; // Reject only if the status code is greater than or equal to 600
+        },
+      })
+      .then((res) => {
+        if (res.data.status.toLowerCase() === "success") {
+          setReviews([res.data.data.doc, ...reviews]);
+          setSuccess("Thank you for your review!");
+          setTimeout(() => {
+            setSuccess("");
+          }, 2000);
+        } else if (res.data.error.code === 11000) {
+          setError(
+            "You have already reviewed this tour. You can only review one time."
+          );
+        } else {
+          setError(res.data.message);
+        }
+        setLoading(false);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        setError("Something went wrong. Please try again later.");
+        setLoading(false);
+      });
+  };
+  console.log(error);
   return (
-    <ReviewContext.Provider value={{ getTourReviews, reviews }}>
+    <ReviewContext.Provider
+      value={{
+        getTourReviews,
+        reviews,
+        postReview,
+        loading,
+        error,
+        success,
+      }}
+    >
       {children}
     </ReviewContext.Provider>
   );
