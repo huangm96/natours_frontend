@@ -1,6 +1,6 @@
 import React from "react";
 import { useField, Form } from "formik";
-import { FaSpinner } from "react-icons/fa";
+import { buttonSpinnerIcon } from "./../../utils/loadingIcon";
 import "./FormElements.css";
 import { getDate } from "./../../utils/getDate";
 export const MyForm = ({ heading, children }) => {
@@ -43,7 +43,7 @@ export const MyFormButton = ({ loading, text, ...props }) => {
       disabled={loading ? true : false}
       {...props}
     >
-      {loading ? <FaSpinner /> : <p className="green-btn-text">{text}</p>}
+      {loading ? buttonSpinnerIcon() : <p className="green-btn-text">{text}</p>}
     </button>
   );
 };

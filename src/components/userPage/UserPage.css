@@ -1,0 +1,10 @@
+.user-page-container {
+  display: flex;
+  margin: 5rem;
+}
+
+.user-page-content {
+  flex-grow: 10;
+  background-color: white;
+  min-height: 100vh;
+}

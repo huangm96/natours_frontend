@@ -1,6 +1,6 @@
 import React from "react";
 import "./ReviewItem.css";
-import ReviewStars from "./ReviewStars.js";
+import ReviewStars from "../../../utils/ReviewStars.js";
 import ReviewCreatedTime from "./ReviewCreatedTime";
 import { displayUserAvatar } from "../../userAvatar/userAvatar";
 

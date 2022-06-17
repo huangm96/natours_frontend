@@ -1,6 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
 import ToursContext from "../../context/ToursContext";
+import { largeSpinnerIcon } from "../../utils/loadingIcon";
+import { errorMessage } from "../../utils/errorMessage";
 import PageHeader from "./pageHeader/PageHeader";
 import PageDetails from "./pageDetail/PageDetails";
 import PageImages from "./pageImages/PageImages";
@@ -9,7 +11,7 @@ import PageReviews from "./pageReviews/PageReviews";
 import PageReviewInput from "./pageReviewInput/PageReviewInput";
 import PageFooter from "./pageFooter/PageFooter";
 function TourPage() {
-  const { tour, getTourById } = useContext(ToursContext);
+  const { tour, getTourById, loading, error } = useContext(ToursContext);
   const { tourId } = useParams();
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -17,6 +19,9 @@ function TourPage() {
   useEffect(() => {
     getTourById(tourId);
   }, []);
+  if (loading) {
+    return largeSpinnerIcon();
+  }
   if (tour && tour.id) {
     return (
       <div className="tour-page-container">
@@ -30,7 +35,7 @@ function TourPage() {
       </div>
     );
   }
-  return null;
+  return <>{error ? errorMessage(error) : null}</>;
 }
 
 export default TourPage;

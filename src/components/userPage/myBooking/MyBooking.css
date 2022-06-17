@@ -1,7 +1,4 @@
 .my-booking-container {
-  flex-grow: 10;
-  background-color: white;
-  min-height: 100vh;
   padding: 0 1rem;
 }
 .my-booking-header {

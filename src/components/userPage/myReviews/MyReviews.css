@@ -1,0 +1,31 @@
+.my-reviews-container {
+  padding: 0 1rem;
+}
+
+.my-reviews-header {
+  font-size: 1.7rem;
+  padding-top: 3rem;
+}
+.my-reviews-message {
+  font-size: 1.7rem;
+  padding-top: 3rem;
+  text-align: center;
+  font-weight: bold;
+}
+.my-reviews-item-container {
+  display: flex;
+  padding: 2rem 0;
+
+  border-bottom: 2px solid rgb(244, 244, 244);
+}
+
+.my-reviews-item-cell {
+  flex: 1 2 0;
+}
+.my-reviews-item-cell-xl {
+  flex: 2 1 0;
+}
+
+.my-reviews-item-cell-header {
+  font-weight: bold;
+}

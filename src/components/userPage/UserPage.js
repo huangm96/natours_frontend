@@ -1,13 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import UserPageNav from "./userPageNav/UserPageNav";
 import { Outlet } from "react-router-dom";
-
+import "./UserPage.css";
 function UserPage() {
   return (
-    <div
-      className="user-page-container"
-      style={{ display: "flex", flexGrow: 10, margin: "5rem" }}
-    >
+    <div className="user-page-container">
       <UserPageNav />
       <Outlet />
     </div>

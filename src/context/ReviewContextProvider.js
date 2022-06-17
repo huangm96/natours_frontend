@@ -6,6 +6,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 function ReviewContextProvider({ children }) {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
+  const [myReviews, setMyReviews] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
@@ -56,6 +57,20 @@ function ReviewContextProvider({ children }) {
         setLoading(false);
       });
   };
+  const getMyReviews = () => {
+    setLoading(true);
+    axiosWithAuth()
+      .get(`/reviews/myreviews`)
+      .then((res) => {
+        setMyReviews(res.data.data);
+        setLoading(false);
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+        setLoading(false);
+      });
+  };
   return (
     <ReviewContext.Provider
       value={{
@@ -65,6 +80,8 @@ function ReviewContextProvider({ children }) {
         loading,
         error,
         success,
+        getMyReviews,
+        myReviews,
       }}
     >
       {children}

@@ -10,7 +10,7 @@ function MySetting() {
   }, []);
 
   return (
-    <div className="my-setting-container">
+    <div className="user-page-content my-setting-container">
       <PersonalInfo />
       <ChangePassword />
     </div>

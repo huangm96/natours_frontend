@@ -13,6 +13,8 @@ import {
   FormFeedback,
   MyQuantitySelect,
 } from "../form/FormElements";
+import { largeSpinnerIcon } from "../../utils/loadingIcon";
+import { errorMessage } from "../../utils/errorMessage";
 function TourBooking() {
   const {
     tourBooking,
@@ -28,7 +30,9 @@ function TourBooking() {
   useEffect(() => {
     getTourBooking(tourId);
   }, []);
-
+  if (loading) {
+    return largeSpinnerIcon();
+  }
   if (tour && tour.id) {
     return (
       <div className="tour-booking-container">
@@ -95,6 +99,7 @@ function TourBooking() {
       </div>
     );
   }
+  return <>{error ? errorMessage(error) : null}</>;
 }
 
 export default TourBooking;

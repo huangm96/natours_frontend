@@ -2,12 +2,14 @@ import React, { useEffect, useContext } from "react";
 import BookingContext from "../../../context/BookingContext";
 import BookedItem from "./BookedItem";
 import "./MyBooking.css";
+import { largeSpinnerIcon } from "../../../utils/loadingIcon";
+import { errorMessage } from "../../../utils/errorMessage";
 function MyBooking() {
-  const { getMyBooking, myBooking } = useContext(BookingContext);
+  const { getMyBooking, myBooking, loading, error } =
+    useContext(BookingContext);
   useEffect(() => {
     getMyBooking();
   }, []);
-  console.log(myBooking);
   const getUpcomingTrip = (myBooking) => {
     const upcomingTrip = myBooking.map((booking) => {
       if (new Date(booking.tourStartDate) >= new Date()) {
@@ -26,8 +28,14 @@ function MyBooking() {
     });
     return pastTrip;
   };
+  if (loading) {
+    return largeSpinnerIcon();
+  }
+  if (error) {
+    errorMessage(error);
+  }
   return (
-    <div className="my-booking-container">
+    <div className="user-page-content my-booking-container">
       <p className="green-heading my-booking-header">Upcoming Trips:</p>
       {getUpcomingTrip(myBooking).length ? (
         getUpcomingTrip(myBooking)

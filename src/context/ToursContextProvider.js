@@ -8,26 +8,34 @@ function ToursContextProvider({ children }) {
   //sets state of user throughout the app
   const [tours, setTours] = useState([]);
   const [tour, setTour] = useState({});
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState("");
   useEffect(() => {
     getAllTours();
   }, []);
   let navigate = useNavigate();
 
   const getAllTours = () => {
+    setLoading(true);
+    setError("");
     axiosWithAuth()
       .get("/tours")
       .then((res) => {
         setTours(res.data.data);
+        setLoading(false);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
+        setError(error);
+        setLoading(false);
       });
   };
   const getImageCover = (id) => {
     if (tours && tours[0].imageCoverPicture) {
       return;
     }
+
     axiosWithAuth()
       .get(`/tourPhotos/${id}`)
       .then((res) => {
@@ -49,6 +57,8 @@ function ToursContextProvider({ children }) {
       });
   };
   const getTourById = (id) => {
+    setLoading(true);
+    setError("");
     axiosWithAuth()
       .get(`/tours/${id}`, {
         validateStatus: function (status) {
@@ -61,14 +71,19 @@ function ToursContextProvider({ children }) {
         } else {
           setTour(res.data.data);
         }
+        setLoading(false);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
+        setLoading(false);
+        setError(error);
       });
   };
   return (
-    <ToursContext.Provider value={{ tours, getImageCover, getTourById, tour }}>
+    <ToursContext.Provider
+      value={{ tours, getImageCover, getTourById, tour, loading, error }}
+    >
       {children}
     </ToursContext.Provider>
   );
