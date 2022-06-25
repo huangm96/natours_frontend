@@ -63,6 +63,14 @@ function BookingContextProvider({ children }) {
       .then((res) => {
         if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
+          if (
+            res.data.message === "Your token has expired! Please log in again!"
+          ) {
+            setTimeout(() => {
+              navigate("/login", { replace: true });
+              setError("");
+            }, 2000);
+          }
         } else {
           res.data.data.forEach((data) => {
             booking[data.tourStartDate].push(data);
