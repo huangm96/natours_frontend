@@ -10,8 +10,12 @@ import {
 } from "../../form/FormElements";
 import UserContext from "../../../context/UserContext";
 const ChangePassword = () => {
-  const { updateMyPassword, updatePasswordLoading, error, success } =
-    useContext(UserContext);
+  const {
+    updateMyPassword,
+    updatePasswordLoading,
+    error,
+    updatePasswordSuccess,
+  } = useContext(UserContext);
 
   return (
     <Formik
@@ -56,7 +60,7 @@ const ChangePassword = () => {
           text="Save Password"
           style={{ alignSelf: "end" }}
         />
-        <FormFeedback error={error} success={success} />
+        <FormFeedback error={error} success={updatePasswordSuccess} />
       </MyForm>
     </Formik>
   );

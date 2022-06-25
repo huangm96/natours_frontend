@@ -45,7 +45,6 @@ function BookingContextProvider({ children }) {
       if (err.response.data.status.toLowerCase() !== "success") {
         navigate("/pageNotFound", { replace: true });
       } else {
-        console.log(err);
         setError(err);
       }
     }
@@ -74,6 +73,7 @@ function BookingContextProvider({ children }) {
       })
       .catch((err) => {
         // handle error
+
         setError("Something went wrong. Please try again later.");
         setLoading(false);
       });

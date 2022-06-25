@@ -41,7 +41,11 @@ function App() {
                       <Route path="tours/:tourId" element={<TourPage />} />
                       <Route
                         path="tours/:tourId/tourBooking"
-                        element={<TourBooking />}
+                        element={
+                          <PrivateRoute>
+                            <TourBooking />
+                          </PrivateRoute>
+                        }
                       />
                       <Route
                         path="me"

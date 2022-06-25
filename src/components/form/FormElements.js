@@ -76,7 +76,10 @@ export const MyDateSelect = ({ label, dates, maxGroupSize, ...props }) => {
       <select className="form-element-select " {...field}>
         <option value="" label="Select a Date" />
         {Object.keys(dates).map((date, i) => {
-          return <option key={i} value={date} label={getDate(date)} />;
+          if (new Date(date) > new Date()) {
+            return <option key={i} value={date} label={getDate(date)} />;
+          }
+          return null;
         })}
       </select>
       {ticketLeft <= 5 ? (

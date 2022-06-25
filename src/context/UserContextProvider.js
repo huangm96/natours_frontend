@@ -2,14 +2,14 @@ import React, { useState } from "react";
 import UserContext from "./UserContext.js";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
-
 function UserContextProvider({ children }) {
   //sets state of user throughout the app
   const [myData, setMyData] = useState({});
   const [error, setError] = useState("");
   const [updateDataLoading, setUpdateDataLoading] = useState(false);
   const [updatePasswordLoading, setUpdatePasswordLoading] = useState(false);
-  const [success, setSuccess] = useState("");
+  const [updateDataSuccess, setUpdateDataSuccess] = useState("");
+  const [updatePasswordSuccess, setUpdatePasswordSuccess] = useState("");
   let navigate = useNavigate();
 
   const getMyData = () => {
@@ -53,9 +53,17 @@ function UserContextProvider({ children }) {
       .then((res) => {
         if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
+          if (
+            res.data.message === "Your token has expired! Please log in again!"
+          ) {
+            setTimeout(() => {
+              navigate("/login", { replace: true });
+              setError("");
+            }, 2000);
+          }
         } else {
           setMyData(res.data.data.updatedDoc);
-          setSuccess("You have successfully update your data.");
+          setUpdateDataSuccess("You have successfully update your data.");
         }
         setUpdateDataLoading(false);
       })
@@ -65,7 +73,7 @@ function UserContextProvider({ children }) {
         setUpdateDataLoading(false);
       });
     setTimeout(() => {
-      setSuccess("");
+      setUpdateDataSuccess("");
     }, 3000);
   };
   const updateMyPassword = (data) => {
@@ -81,9 +89,19 @@ function UserContextProvider({ children }) {
         console.log(res);
         if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
+          if (
+            res.data.message === "Your token has expired! Please log in again!"
+          ) {
+            setTimeout(() => {
+              navigate("/login", { replace: true });
+              setError("");
+            }, 2000);
+          }
         } else {
           localStorage.setItem("token", res.data.token);
-          setSuccess("You have successfully update your password.");
+          setUpdatePasswordSuccess(
+            "You have successfully update your password."
+          );
         }
         setUpdatePasswordLoading(false);
       })
@@ -93,7 +111,7 @@ function UserContextProvider({ children }) {
         setUpdatePasswordLoading(false);
       });
     setTimeout(() => {
-      setSuccess("");
+      setUpdatePasswordSuccess("");
     }, 3000);
   };
 
@@ -107,7 +125,8 @@ function UserContextProvider({ children }) {
         updateDataLoading,
         updatePasswordLoading,
         error,
-        success,
+        updateDataSuccess,
+        updatePasswordSuccess,
       }}
     >
       {children}

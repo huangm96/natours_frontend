@@ -10,7 +10,7 @@ import {
 } from "../../form/FormElements";
 import UserContext from "../../../context/UserContext";
 const PersonalInfo = () => {
-  const { myData, updateMyData, updateDataLoading, error, success } =
+  const { myData, updateMyData, updateDataLoading, error, updateDataSuccess } =
     useContext(UserContext);
 
   return (
@@ -41,7 +41,7 @@ const PersonalInfo = () => {
             text="Save Setting"
             style={{ alignSelf: "end" }}
           />
-          <FormFeedback error={error} success={success} />
+          <FormFeedback error={error} success={updateDataSuccess} />
         </MyForm>
       </Formik>
     </div>
