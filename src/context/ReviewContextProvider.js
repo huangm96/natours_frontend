@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import ReviewContext from "./ReviewContext.js";
 import AuthContext from "./AuthContext.js";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-
+import { useNavigate } from "react-router-dom";
 function ReviewContextProvider({ children }) {
   const { user } = useContext(AuthContext);
   const [reviews, setReviews] = useState([]);
@@ -10,6 +10,7 @@ function ReviewContextProvider({ children }) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
+  let navigate = useNavigate();
   const getTourReviews = (tourId) => {
     setLoading(true);
     axiosWithAuth()
@@ -45,6 +46,14 @@ function ReviewContextProvider({ children }) {
           setError(
             "You have already reviewed this tour. You can only review one time."
           );
+        } else if (
+          res.data.message === "Your token has expired! Please log in again!"
+        ) {
+          setError(res.data.message);
+          setTimeout(() => {
+            navigate("/login", { replace: true });
+            setError("");
+          }, 2000);
         } else {
           setError(res.data.message);
         }
@@ -58,16 +67,35 @@ function ReviewContextProvider({ children }) {
       });
   };
   const getMyReviews = () => {
+    setError("");
     setLoading(true);
     axiosWithAuth()
-      .get(`/reviews/myreviews`)
+      .get(`/reviews/myreviews`, {
+        validateStatus: function (status) {
+          return status < 600; // Reject only if the status code is greater than or equal to 600
+        },
+      })
       .then((res) => {
-        setMyReviews(res.data.data);
+        if (res.data.status.toLowerCase() !== "success") {
+          setError(res.data.message);
+          if (
+            res.data.message === "Your token has expired! Please log in again!"
+          ) {
+            setTimeout(() => {
+              navigate("/login", { replace: true });
+              setError("");
+            }, 2000);
+          }
+        } else {
+          setMyReviews(res.data.data);
+        }
+
         setLoading(false);
       })
       .catch(function (error) {
         // handle error
         console.log(error);
+        setError("Something went wrong. Please try again later.");
         setLoading(false);
       });
   };

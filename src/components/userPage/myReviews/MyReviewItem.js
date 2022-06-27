@@ -10,7 +10,7 @@ const MyReviewItem = ({ review }) => {
       </div>
 
       <div className="my-reviews-item-cell">
-        <p className="my-booking-item-cell-xl my-reviews-item-cell-header">
+        <p className="my-reviews-item-cell-xl my-reviews-item-cell-header">
           Rating
         </p>
         <ReviewStars rating={review.rating} />

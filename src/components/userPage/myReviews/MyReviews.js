@@ -17,13 +17,13 @@ function MyReviews() {
   }
   return myReviews.length ? (
     <div className="user-page-content my-reviews-container">
-      <p className="green-heading my-booking-header">Your Reviews:</p>
+      <p className="green-heading my-reviews-header">Your Reviews:</p>
       {myReviews.map((review) => {
         return <MyReviewItem key={review.id} review={review} />;
       })}
     </div>
   ) : (
-    <p className="my-booking-message">You have not written any reviews</p>
+    <p className="my-reviews-message">You have not written any reviews</p>
   );
 }
 

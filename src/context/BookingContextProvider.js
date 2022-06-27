@@ -50,7 +50,7 @@ function BookingContextProvider({ children }) {
     }
     setTour(tour);
     let booking = await tour.startDates.reduce((current, date) => {
-      return { ...current, [date]: [] };
+      return { ...current, [date.toString()]: [] };
     }, {});
 
     // setTourBooking(booking);
@@ -60,7 +60,7 @@ function BookingContextProvider({ children }) {
           return status < 600; // Reject only if the status code is greater than or equal to 600
         },
       })
-      .then((res) => {
+      .then(async (res) => {
         if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
           if (
@@ -73,19 +73,24 @@ function BookingContextProvider({ children }) {
           }
         } else {
           res.data.data.forEach((data) => {
-            booking[data.tourStartDate].push(data);
+            if (data.tourStartDate in booking) {
+              booking[data.tourStartDate].push(data);
+            }
           });
+
           setTourBooking(booking);
         }
+
         setLoading(false);
       })
       .catch((err) => {
         // handle error
-
+        console.log(err);
         setError("Something went wrong. Please try again later.");
         setLoading(false);
       });
   };
+
   const createPaymentForm = (data, tourId) => {
     setError("");
     setLoading(true);

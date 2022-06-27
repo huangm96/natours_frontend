@@ -1,0 +1,23 @@
+@keyframes spinning-animation {
+  0% {
+    transform: rotate(90deg);
+  }
+  25% {
+    transform: rotate(180deg);
+  }
+  50% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.spinningIcon-large {
+  font-size: 3rem;
+  margin: 5rem auto;
+}
+.spinning-effect {
+  animation-name: spinning-animation;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+}

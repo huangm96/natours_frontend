@@ -16,7 +16,11 @@ function PageReviews({ tour }) {
       </div>
     );
   }
-  return <div> No review yet</div>;
+  return (
+    <p className="tour-page-reviews-message">
+      You can write the first review!!!
+    </p>
+  );
 }
 
 export default PageReviews;
