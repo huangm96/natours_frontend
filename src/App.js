@@ -20,6 +20,7 @@ import MySetting from "./components/userPage/mySetting/MySetting";
 import MyBooking from "./components/userPage/myBooking/MyBooking";
 import MyReviews from "./components/userPage/myReviews/MyReviews";
 import PageNotFound from "./components/pageNotFound/PageNotFound";
+import PaymentResult from "./components/paymentResult/PaymentResult";
 function App() {
   return (
     <div className="App">
@@ -60,8 +61,9 @@ function App() {
                         <Route path="mybooking" element={<MyBooking />} />
                         <Route path="myreviews" element={<MyReviews />} />
                       </Route>
-                      <Route path="*" element={<PageNotFound />} />
                     </Route>
+                    <Route path="/paymentResult" element={<PaymentResult />} />
+                    <Route path="*" element={<PageNotFound />} />
                   </Routes>
                 </BookingContextProvider>
               </ReviewContextProvider>

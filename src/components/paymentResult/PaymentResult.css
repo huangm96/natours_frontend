@@ -1,0 +1,35 @@
+.payment-result-container {
+}
+.payment-result-logo {
+  align-self: left;
+  height: 50px;
+  margin-top: 2rem;
+  margin-left: 2rem;
+}
+.payment-result-content {
+  text-align: center;
+  max-width: 60vw;
+  margin: 2rem auto 0rem auto;
+}
+.payment-result-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+.payment-fail {
+  color: rgb(173, 17, 17);
+}
+.payment-success {
+  color: green;
+}
+.payment-message {
+  margin-top: 2rem;
+}
+.payment-subtitle {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-top: 2rem;
+}
+.payment-amount {
+  font-size: 4rem;
+  font-weight: bold;
+}
