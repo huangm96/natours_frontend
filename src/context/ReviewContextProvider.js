@@ -50,6 +50,8 @@ function ReviewContextProvider({ children }) {
           res.data.message === "Your token has expired! Please log in again!"
         ) {
           setError(res.data.message);
+          localStorage.removeItem("token");
+          window.location.reload();
           setTimeout(() => {
             navigate("/login", { replace: true });
             setError("");
@@ -81,6 +83,8 @@ function ReviewContextProvider({ children }) {
           if (
             res.data.message === "Your token has expired! Please log in again!"
           ) {
+            localStorage.removeItem("token");
+            window.location.reload();
             setTimeout(() => {
               navigate("/login", { replace: true });
               setError("");

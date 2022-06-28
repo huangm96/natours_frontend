@@ -25,6 +25,7 @@ function UserContextProvider({ children }) {
         .then((res) => {
           if (res.data.status.toLowerCase() !== "success") {
             localStorage.removeItem("token");
+            window.location.reload();
             setError("Token expired. Please login again.");
             setTimeout(() => {
               navigate("/login", { replace: true });
@@ -56,6 +57,8 @@ function UserContextProvider({ children }) {
           if (
             res.data.message === "Your token has expired! Please log in again!"
           ) {
+            localStorage.removeItem("token");
+            window.location.reload();
             setTimeout(() => {
               navigate("/login", { replace: true });
               setError("");
@@ -92,6 +95,8 @@ function UserContextProvider({ children }) {
           if (
             res.data.message === "Your token has expired! Please log in again!"
           ) {
+            localStorage.removeItem("token");
+            window.location.reload();
             setTimeout(() => {
               navigate("/login", { replace: true });
               setError("");

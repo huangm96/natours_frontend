@@ -60,12 +60,14 @@ function BookingContextProvider({ children }) {
           return status < 600; // Reject only if the status code is greater than or equal to 600
         },
       })
-      .then(async (res) => {
+      .then((res) => {
         if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
           if (
             res.data.message === "Your token has expired! Please log in again!"
           ) {
+            localStorage.removeItem("token");
+            window.location.reload();
             setTimeout(() => {
               navigate("/login", { replace: true });
               setError("");
@@ -85,7 +87,7 @@ function BookingContextProvider({ children }) {
       })
       .catch((err) => {
         // handle error
-        console.log(err);
+
         setError("Something went wrong. Please try again later.");
         setLoading(false);
       });
