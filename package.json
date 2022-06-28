@@ -9,7 +9,7 @@
     "axios": "^0.27.2",
     "buffer": "^6.0.3",
     "formik": "^2.2.9",
-    "mapbox-gl": "^2.8.2",
+    "mapbox-gl": "1.13.0",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-dotenv": "^0.1.3",
