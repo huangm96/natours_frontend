@@ -17,9 +17,15 @@ const PageReviewInput = ({ tour }) => {
         </>
       ) : (
         <div>
-          <span>You must </span> <Link to="/signup">register</Link>{" "}
+          <span>You must </span>{" "}
+          <Link to="/signup" className="page-auth-link">
+            register
+          </Link>{" "}
           <span> or </span>
-          <Link to="/login">login</Link> to post a comment.
+          <Link to="/login" className="page-auth-link">
+            login
+          </Link>{" "}
+          to post a comment.
         </div>
       )}
     </div>

@@ -3,3 +3,9 @@
   align-items: flex-start;
   margin: 1rem 5rem;
 }
+.page-auth-link {
+  /* text-decoration: none; */
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: green;
+}
