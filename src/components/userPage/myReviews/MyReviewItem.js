@@ -1,6 +1,6 @@
 import React from "react";
-import ReviewStars from "../../../utils/ReviewStars";
-import { getDate } from "../../../utils/getDate";
+import ReviewStars from "./../../../utils/ReviewStars";
+import { getDate } from "./../../../utils/getDate";
 const MyReviewItem = ({ review }) => {
   return (
     <div className="my-reviews-item-container">

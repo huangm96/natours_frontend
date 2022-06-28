@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useContext } from "react";
-import TourImagesContext from "../../../context/TourImagesContext";
+import TourImagesContext from "./../../../context/TourImagesContext";
 import { getDate } from "./../../../utils/getDate";
 const BookedItem = ({ data }) => {
   const { getOneImage } = useContext(TourImagesContext);

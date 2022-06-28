@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import ToursContext from "../../context/ToursContext";
+import ToursContext from "./../../context/ToursContext";
 
 import "./CardHeader.css";
 

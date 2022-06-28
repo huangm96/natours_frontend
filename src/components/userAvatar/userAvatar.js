@@ -1,4 +1,4 @@
-import { convertBufferToImage } from "../../utils/convertBufferToImage";
+import { convertBufferToImage } from "./../../utils/convertBufferToImage";
 
 export const displayUserAvatar = (user) => {
   let userImg = "";

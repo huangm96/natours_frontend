@@ -8,7 +8,7 @@ import {
   MyReviewTextarea,
   MyFormButton,
   FormFeedback,
-} from "../../form/FormElements";
+} from "./../../form/FormElements";
 const PageReviewInputForm = ({ tour }) => {
   const [rating, setRating] = useState(0);
   const { postReview, loading, success, error } = useContext(Review);

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import BookingContext from "./BookingContext.js";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { axiosWithAuth } from "./../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
 function BookingContextProvider({ children }) {

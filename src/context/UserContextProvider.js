@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import UserContext from "./UserContext.js";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { axiosWithAuth } from "./../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 function UserContextProvider({ children }) {
   //sets state of user throughout the app

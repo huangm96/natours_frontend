@@ -1,9 +1,9 @@
 import React, { useEffect, useContext } from "react";
-import BookingContext from "../../../context/BookingContext";
+import BookingContext from "./../../../context/BookingContext";
 import BookedItem from "./BookedItem";
 import "./MyBooking.css";
-import { largeSpinnerIcon } from "../../../utils/loadingIcon";
-import { errorMessage } from "../../../utils/errorMessage";
+import { largeSpinnerIcon } from "./../../../utils/loadingIcon";
+import { errorMessage } from "./../../../utils/errorMessage";
 function MyBooking() {
   const { getMyBooking, myBooking, loading, error } =
     useContext(BookingContext);

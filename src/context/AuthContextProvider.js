@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import AuthContext from "./AuthContext";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { axiosWithAuth } from "./../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 
 function AuthContextProvider({ children }) {

@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import BookingContext from "../../context/BookingContext";
+import BookingContext from "./../../context/BookingContext";
 import { useParams } from "react-router-dom";
 import { convertBufferToImage } from "./../../utils/convertBufferToImage";
 import "./TourBooking.css";
@@ -12,9 +12,9 @@ import {
   MyFormButton,
   FormFeedback,
   MyQuantitySelect,
-} from "../form/FormElements";
-import { largeSpinnerIcon } from "../../utils/loadingIcon";
-import { errorMessage } from "../../utils/errorMessage";
+} from "./../form/FormElements";
+import { largeSpinnerIcon } from "./../../utils/loadingIcon";
+import { errorMessage } from "./../../utils/errorMessage";
 function TourBooking() {
   const {
     tourBooking,

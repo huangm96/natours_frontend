@@ -1,8 +1,8 @@
 import React, { useEffect, useContext } from "react";
 import { useParams } from "react-router-dom";
-import ToursContext from "../../context/ToursContext";
-import { largeSpinnerIcon } from "../../utils/loadingIcon";
-import { errorMessage } from "../../utils/errorMessage";
+import ToursContext from "./../../context/ToursContext";
+import { largeSpinnerIcon } from "./../../utils/loadingIcon";
+import { errorMessage } from "./../../utils/errorMessage";
 import PageHeader from "./pageHeader/PageHeader";
 import PageDetails from "./pageDetail/PageDetails";
 import PageImages from "./pageImages/PageImages";

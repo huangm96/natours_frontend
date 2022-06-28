@@ -1,5 +1,5 @@
 import React, { useEffect, useContext } from "react";
-import UserContext from "../../../context/UserContext";
+import UserContext from "./../../../context/UserContext";
 import PersonalInfo from "./PersonalInfo";
 import ChangePassword from "./ChangePassword";
 import "./MySetting.css";

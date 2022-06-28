@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import TourImagesContext from "../../../context/TourImagesContext";
-import { convertBufferToImage } from "../../../utils/convertBufferToImage";
+import TourImagesContext from "./../../../context/TourImagesContext";
+import { convertBufferToImage } from "./../../../utils/convertBufferToImage";
 
 import "./PageFooter.css";
 

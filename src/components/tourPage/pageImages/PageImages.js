@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react";
-import TourImagesContext from "../../../context/TourImagesContext";
-import { convertBufferToImage } from "../../../utils/convertBufferToImage";
+import TourImagesContext from "./../../../context/TourImagesContext";
+import { convertBufferToImage } from "./../../../utils/convertBufferToImage";
 import "./PageImages.css";
 function PageImages({ tour }) {
   const { getTourImages, imagesList } = useContext(TourImagesContext);

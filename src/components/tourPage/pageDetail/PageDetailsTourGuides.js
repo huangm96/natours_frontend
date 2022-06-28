@@ -1,6 +1,6 @@
 import React from "react";
 import "./PageDetailsOverviewItem.css";
-import { displayUserAvatar } from "../../userAvatar/userAvatar";
+import { displayUserAvatar } from "./../../userAvatar/userAvatar";
 
 function PageDetailsTourGuides({ guide }) {
   const guideRole = guide.role.replace("-", " ");

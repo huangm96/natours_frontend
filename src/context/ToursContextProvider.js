@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import ToursContext from "./ToursContext";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { convertBufferToImage } from "../utils/convertBufferToImage";
+import { axiosWithAuth } from "./../utils/axiosWithAuth";
+import { convertBufferToImage } from "./../utils/convertBufferToImage";
 import { useNavigate } from "react-router-dom";
 
 function ToursContextProvider({ children }) {

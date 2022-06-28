@@ -6,8 +6,8 @@ import {
   MyTextInput,
   MyFormButton,
   FormFeedback,
-} from "../form/FormElements";
-import AuthContext from "../../context/AuthContext";
+} from "./../form/FormElements";
+import AuthContext from "./../../context/AuthContext";
 const Signup = () => {
   const { signup, loading, success, error, setError } = useContext(AuthContext);
   useEffect(() => {

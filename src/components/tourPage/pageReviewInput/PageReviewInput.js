@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
-import AuthContext from "../../../context/AuthContext";
-import { displayUserAvatar } from "../../userAvatar/userAvatar";
+import AuthContext from "./../../../context/AuthContext";
+import { displayUserAvatar } from "./../../userAvatar/userAvatar";
 import PageReviewInputForm from "./PageReviewInputForm";
 import "./PageReviewInput.css";
 const PageReviewInput = ({ tour }) => {

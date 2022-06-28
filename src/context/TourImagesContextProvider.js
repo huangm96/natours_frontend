@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import TourImagesContext from "./TourImagesContext";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { convertBufferToImage } from "../utils/convertBufferToImage";
+import { axiosWithAuth } from "./../utils/axiosWithAuth";
+import { convertBufferToImage } from "./../utils/convertBufferToImage";
 
 function TourImagesContextProvider({ children }) {
   //sets state of user throughout the app

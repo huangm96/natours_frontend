@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from "react";
 import "./PageReviews.css";
 import ReviewItem from "./ReviewItem";
-import ReviewContext from "../../../context/ReviewContext";
+import ReviewContext from "./../../../context/ReviewContext";
 function PageReviews({ tour }) {
   const { reviews, getTourReviews } = useContext(ReviewContext);
   useEffect(() => {

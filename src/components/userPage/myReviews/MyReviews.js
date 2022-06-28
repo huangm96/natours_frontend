@@ -1,7 +1,7 @@
 import React, { useEffect, useContext } from "react";
 import ReviewContext from "./../../../context/ReviewContext";
-import { largeSpinnerIcon } from "../../../utils/loadingIcon";
-import { errorMessage } from "../../../utils/errorMessage";
+import { largeSpinnerIcon } from "./../../../utils/loadingIcon";
+import { errorMessage } from "./../../../utils/errorMessage";
 import MyReviewItem from "./MyReviewItem";
 import "./MyReviews.css";
 function MyReviews() {

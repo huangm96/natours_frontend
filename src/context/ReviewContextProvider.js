@@ -1,7 +1,7 @@
 import React, { useState, useContext } from "react";
 import ReviewContext from "./ReviewContext.js";
 import AuthContext from "./AuthContext.js";
-import { axiosWithAuth } from "../utils/axiosWithAuth";
+import { axiosWithAuth } from "./../utils/axiosWithAuth";
 import { useNavigate } from "react-router-dom";
 function ReviewContextProvider({ children }) {
   const { user } = useContext(AuthContext);

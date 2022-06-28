@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import ReactMapboxGl, { ZoomControl, Popup, Marker } from "react-mapbox-gl";
 import { BsFillGeoAltFill } from "react-icons/bs";
-import TourImagesContext from "../../../context/TourImagesContext";
+import TourImagesContext from "./../../../context/TourImagesContext";
 
 function PageMap({ tour }) {
   const [bounds, setBounds] = useState([

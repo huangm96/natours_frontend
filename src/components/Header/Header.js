@@ -1,8 +1,8 @@
 import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import "./Header.css";
-import { displayUserAvatar } from "../userAvatar/userAvatar";
-import AuthContext from "../../context/AuthContext";
+import { displayUserAvatar } from "./../userAvatar/userAvatar";
+import AuthContext from "./../../context/AuthContext";
 function Header() {
   const { user, logout } = useContext(AuthContext);
 

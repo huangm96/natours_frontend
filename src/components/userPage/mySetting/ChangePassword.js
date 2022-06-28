@@ -7,8 +7,8 @@ import {
   MyTextInput,
   MyFormButton,
   FormFeedback,
-} from "../../form/FormElements";
-import UserContext from "../../../context/UserContext";
+} from "./../../form/FormElements";
+import UserContext from "./../../../context/UserContext";
 const ChangePassword = () => {
   const {
     updateMyPassword,
