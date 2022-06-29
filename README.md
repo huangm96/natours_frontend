@@ -1,40 +1,101 @@
-# Getting Started with Create React App
+# Natours App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a tour booking application built with React
 
-## Available Scripts
+[https://natours-mh.netlify.app/](https://natours-mh.netlify.app/)
 
-In the project directory, you can run:
+# Project Description
 
-### `npm start`
+This project is part of the online course I've taken at Udemy. [https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/](https://www.udemy.com/course/nodejs-express-mongodb-bootcamp/). Jonas Schmedtmann used PHP to build the web pages in his course. I used React to rebuild the frontend part. I also added some new features based on his UX/UI.
 
-Runs the app in the development mode.
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Build With
 
-The page will reload when you make changes.
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+- [React](https://reactjs.org/)
+- [React Context](https://reactjs.org/docs/context.html)
+- [React Router](https://reactrouter.com/)
+- [formik](https://formik.org/)
+- [yup](https://github.com/jquense/yup)
+- [mapbox](https://www.mapbox.com/)
 
-Launches the test runner in the interactive watch mode.
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Features
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Authentication and Authorization
+  - Register/Login/logout
+  - Require authentication to access user data
+  - Require authentication to post a review
+  - Require authentication to book a tour
+- Tour
+  - Display tour information
+  - Display tour average rating based on the reviews
+  - Display map with tour locations marks
+  - Display tour reviews
+- Payment
+  - Use the 3rd party library to send payment - scripts
+  - Direct to payment success page, if received payment
+  - Direct to payment fail page, if didn't receive payment
+  - ```
+    scripts Test Mode:
+    use this credit card to book a tour
+    credit card: 4242 4242 4242
+    expird date: MM/YY - any date will work
+    cvv: 000 - any numbers will work
+    ```
+- User Profile
+  - Update your username, email, photo, and password
+  - Find your upcoming trips and past trips
+  - Find your reviews
 
-The build is minified and the filenames include the hashes.
-Your app is ready to be deployed!
+### Demonstration
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+**Home Page**:
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+![1656474006387.png](image/README/1656474006387.png)
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Tour Map with Location Marks**:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+![1656474198320.png](image/README/1656474198320.png)
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Tour Booking Page**:
+
+![1656474316823.png](image/README/1656474316823.png)
+
+**Payment page**:
+
+![1656474400442.png](image/README/1656474400442.png)
+
+**Payment Success**:
+
+![1656474675532.png](image/README/1656474675532.png)
+
+**Booked Tours in User Profile**:
+
+![1656474824764.png](image/README/1656474824764.png)
+
+### API Usage
+
+---
+
+Check Natours API Documentation for more info.
+
+### To-do
+
+---
+
+- Add filter function to the Tours Page
+  - filter by level: easy, medium and difficult
+- Add sort function to the Tours Page
+  - sort tours by price, duration, rating, etc.
+- Build admin profile
+  - create, edit, and delete tours
+
+### Contact Me
+
+---
+
+Feel free to email me at [minh.huang96@gmail.com](minh.huang96@gmail.com) if you have any issues or have questions or ideas. Thank you! 🙂

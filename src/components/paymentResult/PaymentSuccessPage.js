@@ -15,7 +15,7 @@ const PaymentSuccessPage = ({ amount }) => {
         A Receipt of this transaction has been sent via email for your records.
       </p>
       <p className="payment-subtitle">Total Payment Amount</p>
-      <p className="payment-amount">${amount / 100}</p>
+      <p className="payment-amount">${(amount / 100).toFixed(2)}</p>
     </PaymentPageLayout>
   );
 };
