@@ -98,4 +98,4 @@ Check Natours API Documentation for more info.
 
 ---
 
-Feel free to email me at [minh.huang96@gmail.com](minh.huang96@gmail.com) if you have any issues or have questions or ideas. Thank you! 🙂
+Feel free to email me at [minh.huang96@gmail.com](minh.huang96@gmail.com) if you have any issues, questions or ideas. Thank you! 🙂
