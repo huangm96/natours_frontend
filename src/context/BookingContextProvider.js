@@ -21,8 +21,16 @@ function BookingContextProvider({ children }) {
         },
       })
       .then((res) => {
+        console.log(res.status === 401);
         if (res.data.status.toLowerCase() !== "success") {
           setError(res.data.message);
+          if (res.status === 401) {
+            window.location.reload();
+            setTimeout(() => {
+              navigate("/login", { replace: true });
+              setError("");
+            }, 2000);
+          }
         } else {
           setMyBooking(res.data.data);
         }

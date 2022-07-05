@@ -40,6 +40,12 @@ function UserContextProvider({ children }) {
           setError("Something went wrong. Please try again later.");
           setUpdateDataLoading(false);
         });
+    } else {
+      window.location.reload();
+      setError("Token expired. Please login again.");
+      setTimeout(() => {
+        navigate("/login", { replace: true });
+      }, 2000);
     }
   };
   const updateMyData = (data) => {

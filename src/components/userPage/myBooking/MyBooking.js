@@ -34,6 +34,7 @@ function MyBooking() {
   if (error) {
     errorMessage(error);
   }
+  console.log(error);
   return (
     <div className="user-page-content my-booking-container">
       <p className="green-heading my-booking-header">Upcoming Trips:</p>

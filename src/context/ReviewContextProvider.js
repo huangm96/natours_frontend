@@ -89,6 +89,12 @@ function ReviewContextProvider({ children }) {
               navigate("/login", { replace: true });
               setError("");
             }, 2000);
+          } else if (res.status === 401) {
+            window.location.reload();
+            setTimeout(() => {
+              navigate("/login", { replace: true });
+              setError("");
+            }, 2000);
           }
         } else {
           setMyReviews(res.data.data);
