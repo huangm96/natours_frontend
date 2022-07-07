@@ -2,7 +2,9 @@
 
 This is a tour booking application built with React
 
-[https://natours-mh.netlify.app/](https://natours-mh.netlify.app/)
+Demo: [https://natours-mh.netlify.app/](https://natours-mh.netlify.app/)
+
+github: [https://github.com/huangm96/natours_fronten](https://github.com/huangm96/natours_frontend)
 
 # Project Description
 
