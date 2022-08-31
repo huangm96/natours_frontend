@@ -2,7 +2,7 @@ import { convertBufferToImage } from "./../../utils/convertBufferToImage";
 
 export const displayUserAvatar = (user) => {
   let userImg = "";
-  if (user.avatar) {
+  if (user && user.avatar) {
     userImg = convertBufferToImage(
       user.avatar.img.data,
       user.avatar.contentType
