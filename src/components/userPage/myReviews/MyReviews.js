@@ -23,7 +23,9 @@ function MyReviews() {
       })}
     </div>
   ) : (
-    <p className="my-reviews-message">You have not written any reviews</p>
+    <div className="user-page-content ">
+      <p className=" my-reviews-message">You have not written any reviews</p>
+    </div>
   );
 }
 
